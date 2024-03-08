@@ -1,0 +1,228 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#navbarTitle {
+  margin-right:32px;
+  /* margin: 0 auto; */
+  font-size: 16px;
+  font-weight: bold;
+}
+.btn-primary-scan {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color:  #ffffff!important; 
+  background-color: #2c5f85 !important; 
+  border-color:  #000000 !important;
+  width: 80px; /* Đảm bảo kích thước tối đa không vượt quá kích thước của phần tử cha */
+  height: auto;
+}
+.btn-primary-scan img {
+  padding-bottom: 2px;
+  width: 22px; /* Đặt kích thước chiều rộng mong muốn */
+  height: auto;
+}
+#buttonText{
+  font-weight: bold;
+}
+#infoButton {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 0 0 px;
+  background: #ffffff;
+  color: rgb(38, 15, 15);
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+.info-content {
+  display: none;
+  position: absolute;
+  top: 5px; 
+  left: 5px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  white-space: pre-line; /* Hiển thị thông tin theo hàng dòng */
+  line-height: 0.1;
+}
+.info-popup {
+  display: none;
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1;
+  white-space: pre-line;
+  line-height: 1;
+}
+.alert-info {
+  background-color: #17a2b8;
+  color: #fff;
+}
+body h6 {
+  font-size: 12px;
+}
+footer {
+  background-color: #343a40;
+  color: #fff;
+}
+.center-text {
+  text-align: center;
+  color: #333; /* Màu sắc văn bản tùy chọn */
+  font-size: 24px; /* Kích thước font tùy chọn */
+}
+
+p{
+  font-size:15px;
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(19, 1fr); /* Tạo 15 cột với chiều rộng bằng nhau */
+  grid-template-rows: repeat(20, 1fr);    /* Tạo 15 dòng với chiều cao bằng nhau */
+  width:100vw;
+  /* background-color: #7adae9; */
+}
+
+.grid-item {
+  border: 3px solid #CCCCCC;
+  background-color: white;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+.angle{
+  grid-column: 9 / span 3;
+  grid-row: 2;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+}
+
+.angleR{
+  grid-column: 3 / span 3;
+  grid-row: 4;
+  text-align: center;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+}
+
+.angleL{
+  grid-column: 15 / span 3;
+  grid-row: 4;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+  text-align: center;
+}
+
+.angleRvalue {
+  grid-column: 3 / span 3;
+  grid-row: 6 / span 3;
+  text-align: center;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+  cursor: pointer;
+  background: none;
+}
+
+.angleLvalue {
+  grid-column: 15 / span 3;
+  grid-row: 6 / span 3;
+  text-align: center;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+  cursor: pointer;
+  background: none;
+}
+
+.R0decrement{
+  grid-column: 3;
+  grid-row: 10;
+}
+.R0increment{
+  grid-column: 5;
+  grid-row: 10;
+}
+
+.L0increment{
+  grid-column: 15;
+  grid-row: 10;
+}
+.L0decrement{
+  grid-column: 17;
+  grid-row: 10;
+}
+
+.R90decrement{
+  grid-column: 7;
+  grid-row: 6;
+}
+.R90increment{
+  grid-column: 7;
+  grid-row: 8;
+}
+
+.L90increment{
+  grid-column: 13;
+  grid-row: 8;
+}
+.L90decrement{
+  grid-column: 13;
+  grid-row: 6;
+}
+
+.Nextbutton{
+  grid-column: 9 / span 3;
+  grid-row: 11 / span 2;
+}
+.Backbutton{
+  grid-column: 9 / span 3;
+  grid-row: 14 / span 2;
+}
+
+.buttonCalibration{
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+}
+.quantity input {
+  width: 15px;
+  text-align: center;
+}
+
+.quantity input,
+.quantity button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.quantity button {
+  /* padding: 5px; */
+  
+}
