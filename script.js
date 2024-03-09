@@ -42,7 +42,7 @@ navigator.bluetooth.requestDevice({
         document.getElementById("buttonText").innerText = "Rescan";
         checkconnected = true;
         Text_Area.value = "Press (+)/(-) to adjust the grippers to 0° position\nPress 'Next' to save and move to the next step";
-        console.log("TextArea");
+        toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
         gattCharacteristic = characteristic
         // gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue)
         return gattCharacteristic.startNotifications()
@@ -90,6 +90,10 @@ function  logstatus(text){
 
 let checkconnected = false;
 
+let Rvalue = document.getElementById("angleRvalue");
+
+let Lvalue = document.getElementById("angleLvalue");
+
 const button = document.getElementById("toggleButton");
 
 function toggleFunction() {
@@ -97,8 +101,15 @@ function toggleFunction() {
         requestBluetoothDevice();
     } else {
         disconnect();
-        checkconnected = false;
+        Rescan();
+        console.log("Rescan");
     }
+}
+
+function Rescan(){
+    checkconnected = false;
+    Rvalue = "0";
+    Lvalue = "0";
 }
 function handleAction(action) {
     if (checkconnected) {
@@ -106,13 +117,25 @@ function handleAction(action) {
     }
 }
 
-let NextStep2 = false;
 
 function Next() {
     handleAction('Next');
     if (checkconnected) {
         Text_Area.value = "Press (+)/(-) to adjust the grippers to 90° position\nPress 'Next' to save and move to the next step";
+        toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "block");
+        toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "none");
+        Rvalue.value = "90";
+        Lvalue.value = "90";
     }
+}
+
+function toggleDisplayForElements(elementIds, displayValue) {
+    elementIds.forEach(function(id) {
+        let element = document.getElementById(id);
+        if (element) {
+            element.style.display = displayValue;
+        }
+    });
 }
 
 function Back() {

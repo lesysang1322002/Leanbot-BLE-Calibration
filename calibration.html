@@ -36,20 +36,20 @@
         
         <textarea  class="TextArea" id="textareaNotification" readonly=""></textarea>
 
-        <input class="angleRvalue" type="text" value="0" readonly>
-        <input class="angleLvalue" type="text" value="0" readonly>
+        <input class="angleRvalue" id = "angleRvalue" type="text" value="0" readonly>
+        <input class="angleLvalue" id = "angleLvalue" type="text" value="0" readonly>
 
-        <button class="L0decrement buttonCalibration" onclick="Ldecrement()">-</button>
-        <button class="L0increment buttonCalibration" onclick="Lincrement()">+</button>
+        <button class="L0decrement buttonCalibration" style="display:none;" onclick="Ldecrement()" id="L0decrement">-</button>
+        <button class="L0increment buttonCalibration" style="display:none;" onclick="Lincrement()" id="L0increment">+</button>
 
-        <button class="R0decrement buttonCalibration" onclick="Rdecrement()">-</button>
-        <button class="R0increment buttonCalibration" onclick="Rincrement()">+</button>
+        <button class="R0decrement buttonCalibration" style="display:none;" onclick="Rdecrement()" id="R0decrement">-</button>
+        <button class="R0increment buttonCalibration" style="display:none;" onclick="Rincrement()" id="R0increment">+</button>
 
-        <button class="L90decrement buttonCalibration">-</button>
-        <button class="L90increment buttonCalibration">+</button>
+        <button class="L90decrement buttonCalibration" style="display:none;" id="L90decrement">-</button>
+        <button class="L90increment buttonCalibration" style="display:none;" id="L90increment">+</button>
 
-        <button class="R90decrement buttonCalibration">-</button>
-        <button class="R90increment buttonCalibration">+</button>
+        <button class="R90decrement buttonCalibration" style="display:none;" id="R90decrement">-</button>
+        <button class="R90increment buttonCalibration" style="display:none;" id="R90increment">+</button>
 
         <button class="Nextbutton buttonCalibration" onclick="Next()">Next</button>
         <button class="Backbutton buttonCalibration">Back</button>
