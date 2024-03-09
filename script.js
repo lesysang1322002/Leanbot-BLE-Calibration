@@ -2,6 +2,9 @@ var bleService = '0000ffe0-0000-1000-8000-00805f9b34fb';
 var bleCharacteristic = '0000ffe1-0000-1000-8000-00805f9b34fb';
 var gattCharacteristic;
 var bluetoothDeviceDetected;
+
+let Text_Area = document.getElementById("textareaNotification");
+
 function isWebBluetoothEnabled() {
     if (!navigator.bluetooth) {
     console.log('Web Bluetooth API is not available in this browser!');
@@ -37,6 +40,8 @@ navigator.bluetooth.requestDevice({
     .then(characteristic => {
         logstatus(dev.name);
         document.getElementById("buttonText").innerText = "Rescan";
+        checkconnected = true;
+        Text_Area = "Press (+)/(-) to adjust the grippers to 0° position";
         gattCharacteristic = characteristic
         // gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue)
         return gattCharacteristic.startNotifications()
@@ -82,6 +87,8 @@ function  logstatus(text){
     navbarTitle.textContent = text;
 }
 
+let checkconnected = false;
+
 const button = document.getElementById("toggleButton");
 
 function toggleFunction() {
@@ -93,6 +100,10 @@ function toggleFunction() {
 }
 function Next(){
     send('Next');
+}
+
+function Back(){
+    send('Back');
 }
 function Ldecrement(){
     send('L--');
