@@ -42,7 +42,6 @@ navigator.bluetooth.requestDevice({
         document.getElementById("buttonText").innerText = "Rescan";
         checkconnected = true;
         Text_Area.value = "Press (+)/(-) to adjust the grippers to 0° position\nPress 'Next' to save and move to the next step";
-        toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
         gattCharacteristic = characteristic
         // gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue)
         return gattCharacteristic.startNotifications()
@@ -110,6 +109,8 @@ function Rescan(){
     checkconnected = false;
     Rvalue = "0";
     Lvalue = "0";
+    toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "none");
+    toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
 }
 function handleAction(action) {
     if (checkconnected) {
