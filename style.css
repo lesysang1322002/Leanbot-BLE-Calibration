@@ -212,7 +212,7 @@ p{
 }
 
 .TextArea{
-  grid-column: 2 / span 17;
+  grid-column: 1 / span 19;
   grid-row: 17 / span 2;
   text-align: center;
 }
