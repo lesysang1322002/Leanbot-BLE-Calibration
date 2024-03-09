@@ -41,7 +41,8 @@ navigator.bluetooth.requestDevice({
         logstatus(dev.name);
         document.getElementById("buttonText").innerText = "Rescan";
         checkconnected = true;
-        Text_Area = "Press (+)/(-) to adjust the grippers to 0° position";
+        Text_Area.value = "Press (+)/(-) to adjust the grippers to 0° position\nPress 'Next' to save and move to the next step";
+        console.log("TextArea");
         gattCharacteristic = characteristic
         // gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue)
         return gattCharacteristic.startNotifications()
@@ -96,42 +97,62 @@ function toggleFunction() {
         requestBluetoothDevice();
     } else {
         disconnect();
+        checkconnected = false;
     }
 }
-function Next(){
-    send('Next');
+function handleAction(action) {
+    if (checkconnected) {
+        send(action);
+    }
 }
 
-function Back(){
-    send('Back');
+let NextStep2 = false;
+
+function Next() {
+    handleAction('Next');
+    if (checkconnected) {
+        Text_Area.value = "Press (+)/(-) to adjust the grippers to 90° position\nPress 'Next' to save and move to the next step";
+    }
 }
-function Ldecrement(){
-    send('L--');
+
+function Back() {
+    handleAction('Back');
 }
-function Lincrement(){
-    send('L++');
+
+function Ldecrement() {
+    handleAction('L--');
 }
-function Rincrement(){
-    send('R++');
+
+function Lincrement() {
+    handleAction('L++');
 }
-function Rdecrement(){
-    send('R--');
+
+function Rincrement() {
+    handleAction('R++');
 }
+
+function Rdecrement() {
+    handleAction('R--');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    
     const decrementBtn = document.querySelector('.L0decrement');
     const incrementBtn = document.querySelector('.L0increment');
     const quantityInput = document.querySelector('.angleLvalue');
 
     decrementBtn.addEventListener('click', function() {
       let currentValue = parseInt(quantityInput.value);
-    //   if (currentValue > 1) {
+       if (checkconnected) {
         quantityInput.value = currentValue - 1;
-    //   }
+       }
     });
 
     incrementBtn.addEventListener('click', function() {
       let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
       quantityInput.value = currentValue + 1;
+      }
     });
   });
   document.addEventListener('DOMContentLoaded', function() {
@@ -141,14 +162,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     decrementBtn.addEventListener('click', function() {
       let currentValue = parseInt(quantityInput.value);
-    //   if (currentValue > 1) {
+      if (checkconnected) {
         quantityInput.value = currentValue - 1;
-    //   }
+      }
     });
 
     incrementBtn.addEventListener('click', function() {
       let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
       quantityInput.value = currentValue + 1;
+      }
     });
   });
 

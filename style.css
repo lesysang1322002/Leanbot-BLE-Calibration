@@ -214,6 +214,7 @@ p{
 .TextArea{
   grid-column: 3 / span 15;
   grid-row: 17 / span 2;
+  text-align: center;
 }
 .quantity input {
   width: 15px;
