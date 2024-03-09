@@ -170,23 +170,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        decrementBtn.addEventListener('mousedown', function() {
+        decrementBtn.addEventListener('touchstart', function() {
             intervalId = setInterval(function() {
                 handleButtonClick(false);
-            }, 200);
+            }, 100);
         });
 
-        decrementBtn.addEventListener('mouseup', function() {
+        decrementBtn.addEventListener('touchend', function() {
             clearInterval(intervalId);
         });
 
-        incrementBtn.addEventListener('mousedown', function() {
+        incrementBtn.addEventListener('touchstart', function() {
             intervalId = setInterval(function() {
                 handleButtonClick(true);
-            }, 200);
+            }, 100);
         });
 
-        incrementBtn.addEventListener('mouseup', function() {
+        incrementBtn.addEventListener('touchend', function() {
             clearInterval(intervalId);
         });
     }
