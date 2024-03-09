@@ -107,8 +107,8 @@ function toggleFunction() {
 
 function Rescan(){
     checkconnected = false;
-    Rvalue = "0";
-    Lvalue = "0";
+    Rvalue.value = "0";
+    Lvalue.value = "0";
     toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "none");
     toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
 }
@@ -182,6 +182,46 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('DOMContentLoaded', function() {
     const decrementBtn = document.querySelector('.R0decrement');
     const incrementBtn = document.querySelector('.R0increment');
+    const quantityInput = document.querySelector('.angleRvalue');
+
+    decrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
+        quantityInput.value = currentValue - 1;
+      }
+    });
+
+    incrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
+      quantityInput.value = currentValue + 1;
+      }
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const decrementBtn = document.querySelector('.L90decrement');
+    const incrementBtn = document.querySelector('.L90increment');
+    const quantityInput = document.querySelector('.angleLvalue');
+
+    decrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+       if (checkconnected) {
+        quantityInput.value = currentValue - 1;
+       }
+    });
+
+    incrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
+      quantityInput.value = currentValue + 1;
+      }
+    });
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    const decrementBtn = document.querySelector('.R90decrement');
+    const incrementBtn = document.querySelector('.R90increment');
     const quantityInput = document.querySelector('.angleRvalue');
 
     decrementBtn.addEventListener('click', function() {
