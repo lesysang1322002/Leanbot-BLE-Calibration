@@ -89,6 +89,8 @@ function  logstatus(text){
 
 let checkconnected = false;
 
+let Next_Text = document.getElementById("Next");
+
 let Rvalue = document.getElementById("angleRvalue");
 
 let Lvalue = document.getElementById("angleLvalue");
@@ -111,6 +113,8 @@ function Rescan(){
     Lvalue.value = "0";
     toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "none");
     toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
+    Text_Area.value = " ";
+
 }
 function handleAction(action) {
     if (checkconnected) {
@@ -118,15 +122,29 @@ function handleAction(action) {
     }
 }
 
+let NextStepSave = false;
+
+let Done = false;
 
 function Next() {
     handleAction('Next');
-    if (checkconnected) {
+    if(Done){
+        Text_Area.value = "Start writting to EEPROM...";
+    }
+    else if(NextStepSave){
+        Text_Area.value = "Press 'Save' to write the calibration result to EEPROM";
+        document.getElementById("Next").innerText = "Save";
+        Done = true;
+    }
+    else{
+        if(checkconnected){
         Text_Area.value = "Press (+)/(-) to adjust the grippers to 90° position\nPress 'Next' to save and move to the next step";
         toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "block");
         toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "none");
         Rvalue.value = "90";
         Lvalue.value = "90";
+        NextStepSave = true;
+        }
     }
 }
 

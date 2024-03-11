@@ -94,10 +94,14 @@ p{
   text-align: center;
 }
 
+#angleRvalue, #angleLvalue{
+  font-size: 25px;
+}
+
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(19, 1fx); 
-  grid-template-rows: repeat(20, 1fx);
+  grid-template-columns: repeat(19, 1fr); 
+  grid-template-rows: repeat(20, 1fr);
   justify-content: center; 
   width:100vw;
   /* background-color: #7adae9; */
@@ -163,37 +167,37 @@ p{
 
 .R0decrement{
   grid-column: 2 / span 2;
-  grid-row: 8 / span 2;
+  grid-row: 8 ;
 }
 .R0increment{
   grid-column: 5 / span 2;
-  grid-row: 8 / span 2;
+  grid-row: 8 ;
 }
 
 .L0increment{
   grid-column: 14 / span 2;
-  grid-row: 8 / span 2;
+  grid-row: 8;
 }
 .L0decrement{
   grid-column: 17 / span 2;
-  grid-row: 8 / span 2;
+  grid-row: 8;
 }
 
 .R90increment{
   grid-column: 7 / span 2;
-  grid-row: 5 / span 2;
+  grid-row: 6 ;
 }
 .R90decrement{
-  grid-column: 7;
+  grid-column: 7 / span 2;
   grid-row: 8;
 }
 
 .L90decrement{
-  grid-column: 13;
+  grid-column: 12 / span 2;
   grid-row: 8;
 }
 .L90increment{
-  grid-column: 13;
+  grid-column: 12 / span 2;
   grid-row: 6;
 }
 
