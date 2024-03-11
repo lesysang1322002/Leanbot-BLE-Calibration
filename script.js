@@ -129,15 +129,16 @@ let Done = false;
 let Step = 0;
 
 function Next() {
-    handleAction('Next');
     if(Step == 1){
+        handleAction('Step2');
         Step2();
-        console.log("Step 2");
     }
     else if(Step == 2){
+        handleAction('Step3');
         Step3();
     }
     else if(Step == 3){
+        handleAction('Step4');
         Step4();
     }
 }
@@ -162,8 +163,9 @@ function Step3(){
 
 function Step4(){
     Step = 4;
-    Text_Area.value = "EE PROM written successfully";
+    Text_Area.value = "Step 4: EEPROM written successfully";
     document.getElementById("Next").innerText = "Done";
+    toggleDisplayForElements(["Backbutton"], "none");
 }
 
 function Step1(){
@@ -187,16 +189,14 @@ function Save() {
 }
 
 function Back() {
-    if(Step == 4){
-        Step3();
-    }
-    else if(Step == 3){
+    if(Step == 3){
         Step2();
+        handleAction('Step2');
     }
     else if(Step == 2){
         Step1();
+        handleAction('Step1');
     }
-    handleAction('Back');
 }
 
 function Ldecrement() {
