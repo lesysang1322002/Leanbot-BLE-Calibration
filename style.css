@@ -185,20 +185,20 @@ p{
 
 .R90increment{
   grid-column: 7 / span 2;
-  grid-row: 6 ;
+  grid-row: 4 ;
 }
 .R90decrement{
   grid-column: 7 / span 2;
-  grid-row: 8;
+  grid-row: 6;
 }
 
 .L90decrement{
   grid-column: 12 / span 2;
-  grid-row: 8;
+  grid-row: 6;
 }
 .L90increment{
   grid-column: 12 / span 2;
-  grid-row: 6;
+  grid-row: 4;
 }
 
 .Nextbutton{

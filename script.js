@@ -41,7 +41,7 @@ navigator.bluetooth.requestDevice({
         logstatus(dev.name);
         document.getElementById("buttonText").innerText = "Rescan";
         checkconnected = true;
-        Text_Area.value = "Press (+)/(-) to adjust the grippers to 0° position\nPress 'Next' to save and move to the next step";
+        Step1();
         gattCharacteristic = characteristic
         // gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue)
         return gattCharacteristic.startNotifications()
@@ -126,28 +126,53 @@ let NextStepSave = false;
 
 let Done = false;
 
+let Step = 0;
+
 function Next() {
     handleAction('Next');
-    if(Done){
-        Text_Area.value = "Start writting to EEPROM...";
+    if(Step == 1){
+        Step2();
+        console.log("Step 2");
     }
-    else if(NextStepSave){
-        Text_Area.value = "Press 'Save' to write the calibration result to EEPROM";
-        document.getElementById("Next").innerText = "Save";
-        Done = true;
+    else if(Step == 2){
+        Step3();
     }
-    else{
-        if(checkconnected){
-        Text_Area.value = "Press (+)/(-) to adjust the grippers to 90° position\nPress 'Next' to save and move to the next step";
-        toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "block");
-        toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "none");
-        Rvalue.value = "90";
-        Lvalue.value = "90";
-        NextStepSave = true;
-        }
+    else if(Step == 3){
+        Step4();
     }
 }
 
+function Step2(){
+    Step = 2;
+    document.getElementById("Next").innerText = "Next";
+    Text_Area.value = " Step 2: Press (+)/(-) to adjust the grippers to 90° position\nPress 'Next' to save and move to the next step";
+    toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "block");
+    toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "none");
+    Rvalue.value = "90";
+    Lvalue.value = "90";
+    NextStepSave = true;
+}
+
+function Step3(){
+    Step = 3;
+    Text_Area.value = " Step 3: Press 'Save' to write the calibration result to EEPROM";
+    document.getElementById("Next").innerText = "Save";
+    Done = true;
+}
+
+function Step4(){
+    Step = 4;
+    Text_Area.value = "EE PROM written successfully";
+    document.getElementById("Next").innerText = "Done";
+}
+
+function Step1(){
+    Step = 1;
+    document.getElementById("Next").innerText = "Next";
+    Text_Area.value = "Step 1: Press (+)/(-) to adjust the grippers to 0° position\nPress 'Next' to save and move to the next step";
+    Rvalue.value = "0";
+    Lvalue.value = "0";
+}
 function toggleDisplayForElements(elementIds, displayValue) {
     elementIds.forEach(function(id) {
         let element = document.getElementById(id);
@@ -157,7 +182,20 @@ function toggleDisplayForElements(elementIds, displayValue) {
     });
 }
 
+function Save() {
+    send('Save');
+}
+
 function Back() {
+    if(Step == 4){
+        Step3();
+    }
+    else if(Step == 3){
+        Step2();
+    }
+    else if(Step == 2){
+        Step1();
+    }
     handleAction('Back');
 }
 
@@ -178,55 +216,88 @@ function Rdecrement() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    function setupButtonEvents(decrementBtn, incrementBtn, quantityInput) {
-        let intervalId;
-        
-        function handleButtonClick(increment) {
-            let currentValue = parseInt(quantityInput.value);
-            if (checkconnected) {
-                quantityInput.value = increment ? currentValue + 1 : currentValue - 1;
-            }
-        }
+    
+    const decrementBtn = document.querySelector('.L0decrement');
+    const incrementBtn = document.querySelector('.L0increment');
+    const quantityInput = document.querySelector('.angleLvalue');
+    decrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+       if (checkconnected) {
+        quantityInput.value = currentValue - 1;
+        send("L"+ quantityInput.value);
+       }
+    });
+    incrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
+      quantityInput.value = currentValue + 1;
+      send("L"+ quantityInput.value);
+      }
+    });
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    const decrementBtn = document.querySelector('.R0decrement');
+    const incrementBtn = document.querySelector('.R0increment');
+    const quantityInput = document.querySelector('.angleRvalue');
+    decrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
+        quantityInput.value = currentValue - 1;
+        send("R"+ quantityInput.value);
+      }
+    });
+    incrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
+        quantityInput.value = currentValue + 1;
+        send("R"+ quantityInput.value);
+      }
+    });
+  });
 
-        decrementBtn.addEventListener('touchstart', function() {
-            intervalId = setInterval(function() {
-                handleButtonClick(false);
-            }, 100);
-        });
+  document.addEventListener('DOMContentLoaded', function() {
 
-        decrementBtn.addEventListener('touchend', function() {
-            clearInterval(intervalId);
-        });
+    const decrementBtn = document.querySelector('.L90decrement');
+    const incrementBtn = document.querySelector('.L90increment');
+    const quantityInput = document.querySelector('.angleLvalue');
 
-        incrementBtn.addEventListener('touchstart', function() {
-            intervalId = setInterval(function() {
-                handleButtonClick(true);
-            }, 100);
-        });
+    decrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+       if (checkconnected) {
+        quantityInput.value = currentValue - 1;
+        send("L"+ quantityInput.value);
+       }
+    });
 
-        incrementBtn.addEventListener('touchend', function() {
-            clearInterval(intervalId);
-        });
-    }
+    incrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
+        quantityInput.value = currentValue + 1;
+        send("L"+ quantityInput.value);
+      }
+    });
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    const decrementBtn = document.querySelector('.R90decrement');
+    const incrementBtn = document.querySelector('.R90increment');
+    const quantityInput = document.querySelector('.angleRvalue');
 
-    const leftDecrementBtn = document.querySelector('.L0decrement');
-    const leftIncrementBtn = document.querySelector('.L0increment');
-    const leftQuantityInput = document.querySelector('.angleLvalue');
-    setupButtonEvents(leftDecrementBtn, leftIncrementBtn, leftQuantityInput);
+    decrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
+        quantityInput.value = currentValue - 1;
+        send("R"+ quantityInput.value);
+      }
+    });
 
-    const rightDecrementBtn = document.querySelector('.R0decrement');
-    const rightIncrementBtn = document.querySelector('.R0increment');
-    const rightQuantityInput = document.querySelector('.angleRvalue');
-    setupButtonEvents(rightDecrementBtn, rightIncrementBtn, rightQuantityInput);
-
-    const left90DecrementBtn = document.querySelector('.L90decrement');
-    const left90IncrementBtn = document.querySelector('.L90increment');
-    setupButtonEvents(left90DecrementBtn, left90IncrementBtn, leftQuantityInput);
-
-    const right90DecrementBtn = document.querySelector('.R90decrement');
-    const right90IncrementBtn = document.querySelector('.R90increment');
-    setupButtonEvents(right90DecrementBtn, right90IncrementBtn, rightQuantityInput);
-});
+    incrementBtn.addEventListener('click', function() {
+      let currentValue = parseInt(quantityInput.value);
+      if (checkconnected) {
+        quantityInput.value = currentValue + 1;
+        send("R"+ quantityInput.value);
+      }
+    });
+  });
 
 document.addEventListener('DOMContentLoaded', function () {
     var infoButton = document.getElementById('infoButton');
