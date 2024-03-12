@@ -43,6 +43,8 @@ navigator.bluetooth.requestDevice({
         checkconnected = true;
         gattCharacteristic = characteristic
         gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue);
+        handleAction('Step1');
+        Step1();
         return gattCharacteristic.startNotifications()
 })
 .catch(error => {
@@ -118,13 +120,9 @@ function Rescan(){
 }
 let string = "";
 let str = "";
-let thefirstmessage = false;
+let angelLvalue = "";
+let angelRvalue = "";
 function handleChangedValue(event) {
-    if(!thefirstmessage){
-        handleAction('Step1');
-        Step1();
-        thefirstmessage = true;
-    }
     let data = event.target.value;
     let dataArray = new Uint8Array(data.buffer);
     let textDecoder = new TextDecoder('utf-8');
@@ -132,19 +130,37 @@ function handleChangedValue(event) {
     let n = valueString.length;
     if(valueString[n-1]=='\n'){
         string += valueString;
-        console.log(string[0]);
         if(string[0]==='L'){
             Step3();
             Text_Area.value = string + "Step 3: Press 'Save' to write the calibration result to EEPROM";
         }
-        if(string[0]==='O'){
+        else if(string[0]==='O'){
             Step1();
         }
-        if(string[0]==='C'){
+        else if(string[0]==='C'){
             Step2();
         }
-        if(string[0]==='W'){
+        else if(string[0]==='W'){
             Step4();
+        }
+        else if(string[0]==='d'){
+            let LIndex = string.indexOf('L');
+            let RIndex = string.indexOf('R');
+            let i = LIndex + 4;
+            angelLvalue = "";
+            while (string[i] != '\t'){
+                angelLvalue += string[i];
+                i++;
+            }
+            let j = RIndex + 4;
+            angelRvalue = "";
+            while (string[j] != '\r'){
+                angelRvalue += string[j];
+                j++;
+            }
+            if(angelLvalue !== Lvalue.value || angelRvalue !== Rvalue.value){
+                alert('WRONG MESSAGE');
+            }
         }
         console.log(string);
         string = "";
@@ -209,6 +225,7 @@ function Step1(){
     Text_Area.value = "Step 1: Press (+)/(-) to adjust the grippers to 0° position\nPress 'Next' to save and move to the next step";
     Rvalue.value = "0";
     Lvalue.value = "0";
+    toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
 }
 function toggleDisplayForElements(elementIds, displayValue) {
     elementIds.forEach(function(id) {
@@ -217,10 +234,6 @@ function toggleDisplayForElements(elementIds, displayValue) {
             element.style.display = displayValue;
         }
     });
-}
-
-function Save() {
-    send('Save');
 }
 
 function Back() {
