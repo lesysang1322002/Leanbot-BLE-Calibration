@@ -41,9 +41,8 @@ navigator.bluetooth.requestDevice({
         logstatus(dev.name);
         document.getElementById("buttonText").innerText = "Rescan";
         checkconnected = true;
-        Step1();
         gattCharacteristic = characteristic
-        gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue)
+        gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue);
         return gattCharacteristic.startNotifications()
 })
 .catch(error => {
@@ -102,8 +101,8 @@ function toggleFunction() {
         requestBluetoothDevice();
     } else {
         disconnect();
+        requestBluetoothDevice();
         Rescan();
-        console.log("Rescan");
     }
 }
 
@@ -113,15 +112,46 @@ function Rescan(){
     Lvalue.value = "0";
     toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "none");
     toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
+    toggleDisplayForElements(["Backbutton", "Next"], "block");
     Text_Area.value = " ";
 
 }
+let string = "";
+let str = "";
+let thefirstmessage = false;
 function handleChangedValue(event) {
+    if(!thefirstmessage){
+        handleAction('Step1');
+        Step1();
+        thefirstmessage = true;
+    }
     let data = event.target.value;
     let dataArray = new Uint8Array(data.buffer);
     let textDecoder = new TextDecoder('utf-8');
     let valueString = textDecoder.decode(dataArray);
-    console.log(valueString);
+    let n = valueString.length;
+    if(valueString[n-1]=='\n'){
+        string += valueString;
+        console.log(string[0]);
+        if(string[0]==='L'){
+            Step3();
+            Text_Area.value = string + "Step 3: Press 'Save' to write the calibration result to EEPROM";
+        }
+        if(string[0]==='O'){
+            Step1();
+        }
+        if(string[0]==='C'){
+            Step2();
+        }
+        if(string[0]==='W'){
+            Step4();
+        }
+        console.log(string);
+        string = "";
+    }
+    else{
+        string += valueString;     
+    }
 }
 function handleAction(action) {
     if (checkconnected) {
@@ -138,15 +168,12 @@ let Step = 0;
 function Next() {
     if(Step == 1){
         handleAction('Step2');
-        Step2();
     }
     else if(Step == 2){
         handleAction('Step3');
-        Step3();
     }
     else if(Step == 3){
         handleAction('Step4');
-        Step4();
     }
 }
 
@@ -163,16 +190,17 @@ function Step2(){
 
 function Step3(){
     Step = 3;
-    Text_Area.value = " Step 3: Press 'Save' to write the calibration result to EEPROM";
     document.getElementById("Next").innerText = "Save";
     Done = true;
+    toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "none");
 }
 
 function Step4(){
     Step = 4;
-    Text_Area.value = "Step 4: EEPROM written successfully";
+    Text_Area.value = "EEPROM written successfully";
     document.getElementById("Next").innerText = "Done";
     toggleDisplayForElements(["Backbutton"], "none");
+    toggleDisplayForElements(["Next"], "none");
 }
 
 function Step1(){
@@ -197,29 +225,11 @@ function Save() {
 
 function Back() {
     if(Step == 3){
-        Step2();
         handleAction('Step2');
     }
     else if(Step == 2){
-        Step1();
         handleAction('Step1');
     }
-}
-
-function Ldecrement() {
-    handleAction('L--');
-}
-
-function Lincrement() {
-    handleAction('L++');
-}
-
-function Rincrement() {
-    handleAction('R++');
-}
-
-function Rdecrement() {
-    handleAction('R--');
 }
 
 document.addEventListener('DOMContentLoaded', function() {

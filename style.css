@@ -152,6 +152,7 @@ p{
   justify-content: center;
   cursor: pointer;
   background: none;
+  border-radius: 5px;
 }
 
 .angleLvalue {
@@ -163,6 +164,7 @@ p{
   justify-content: center;
   cursor: pointer;
   background: none;
+  border-radius: 5px;
 }
 
 .R0decrement{
@@ -216,6 +218,7 @@ p{
   display: flex;
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center;
+  border-radius: 5px;
 }
 
 .TextArea{
@@ -224,20 +227,4 @@ p{
   text-align: center;
   font-size: 13px;
   border: none;
-}
-.quantity input {
-  width: 15px;
-  text-align: center;
-}
-
-.quantity input,
-.quantity button {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.quantity button {
-  /* padding: 5px; */
-  
 }
