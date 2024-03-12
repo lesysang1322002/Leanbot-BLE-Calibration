@@ -43,7 +43,7 @@ navigator.bluetooth.requestDevice({
         checkconnected = true;
         Step1();
         gattCharacteristic = characteristic
-        // gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue)
+        gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue)
         return gattCharacteristic.startNotifications()
 })
 .catch(error => {
@@ -115,6 +115,13 @@ function Rescan(){
     toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
     Text_Area.value = " ";
 
+}
+function handleChangedValue(event) {
+    let data = event.target.value;
+    let dataArray = new Uint8Array(data.buffer);
+    let textDecoder = new TextDecoder('utf-8');
+    let valueString = textDecoder.decode(dataArray);
+    console.log(valueString);
 }
 function handleAction(action) {
     if (checkconnected) {
