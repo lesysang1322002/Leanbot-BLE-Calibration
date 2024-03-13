@@ -261,35 +261,29 @@ document.addEventListener('DOMContentLoaded', function() {
       const quantityInput = document.querySelector(input);
       let intervalId;
   
-      decrementBtn.addEventListener('mousedown', startDecrement);
-      decrementBtn.addEventListener('touchstart', startDecrement);
+      decrementBtn.addEventListener('pointerdown', startDecrement);
+      decrementBtn.addEventListener('pointerup', stopDecrement);
   
-      decrementBtn.addEventListener('mouseup', stopDecrement);
-      decrementBtn.addEventListener('touchend', stopDecrement);
+      incrementBtn.addEventListener('pointerdown', startIncrement);
+      incrementBtn.addEventListener('pointerup', stopIncrement);
   
-      incrementBtn.addEventListener('mousedown', startIncrement);
-      incrementBtn.addEventListener('touchstart', startIncrement);
-  
-      incrementBtn.addEventListener('mouseup', stopIncrement);
-      incrementBtn.addEventListener('touchend', stopIncrement);
-  
-      function startDecrement() {
-        intervalId = setInterval(decrementValue, 350);
+      function startDecrement(event) {
+        intervalId = setInterval(() => decrementValue(event), 400);
       }
   
       function stopDecrement() {
         clearInterval(intervalId);
       }
   
-      function startIncrement() {
-        intervalId = setInterval(incrementValue, 350);
+      function startIncrement(event) {
+        intervalId = setInterval(() => incrementValue(event), 400);
       }
   
       function stopIncrement() {
         clearInterval(intervalId);
       }
   
-      function decrementValue() {
+      function decrementValue(event) {
         let currentValue = parseInt(quantityInput.value);
         if (checkconnected) {
           quantityInput.value = currentValue - 1;
@@ -297,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
   
-      function incrementValue() {
+      function incrementValue(event) {
         let currentValue = parseInt(quantityInput.value);
         if (checkconnected) {
           quantityInput.value = currentValue + 1;
@@ -305,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
-});  
+  });  
 
 document.addEventListener('DOMContentLoaded', function () {
     var infoButton = document.getElementById('infoButton');
