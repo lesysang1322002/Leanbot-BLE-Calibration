@@ -100,10 +100,11 @@ p{
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(19, 1fr); 
-  grid-template-rows: repeat(19, 1fr);
-  justify-content: center; 
-  width:100vw;
+  grid-template-columns: repeat(19, 25px); 
+  grid-template-rows: repeat(13, 25px);
+  justify-content: center;
+  align-items: center;
+  /* width:100vw; */
   /* background-color: #7adae9; */
 }
 
@@ -113,13 +114,13 @@ p{
   display: flex;
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center; /* Căn giữa theo chiều ngang */
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .angle{
   grid-column: 9 / span 3;
-  grid-row: 1 / span 2;
+  grid-row: 1 ;
   display: flex;
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center;
@@ -127,7 +128,7 @@ p{
 
 .angleR{
   grid-column: 3 / span 3;
-  grid-row: 2 / span 2;
+  grid-row: 2 ;
   text-align: center;
   display: flex;
   align-items: center; /* Căn giữa theo chiều dọc */
@@ -136,7 +137,7 @@ p{
 
 .angleL{
   grid-column: 15 / span 3;
-  grid-row: 2 / span 2;
+  grid-row: 2;
   display: flex;
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center;
@@ -145,71 +146,71 @@ p{
 
 .angleRvalue {
   grid-column: 3 / span 3;
-  grid-row: 4 / span 3;
+  grid-row: 3 / span 3;
   text-align: center;
-  display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
-  justify-content: center;
   cursor: pointer;
   background: none;
   border-radius: 5px;
+  width: 75px;
+  height: 75px;
 }
 
 .angleLvalue {
   grid-column: 15 / span 3;
-  grid-row: 4 / span 3;
+  grid-row: 3 / span 3;
   text-align: center;
-  display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
-  justify-content: center;
   cursor: pointer;
   background: none;
   border-radius: 5px;
+  width: 75px;
+  height: 75px;
 }
 
 .R0decrement{
   grid-column: 2 / span 2;
-  grid-row: 8 ;
+  grid-row: 7 ;
 }
 .R0increment{
   grid-column: 5 / span 2;
-  grid-row: 8 ;
+  grid-row: 7 ;
 }
 
 .L0increment{
   grid-column: 14 / span 2;
-  grid-row: 8;
+  grid-row: 7;
 }
 .L0decrement{
   grid-column: 17 / span 2;
-  grid-row: 8;
+  grid-row: 7;
 }
 
 .R90increment{
   grid-column: 7 / span 2;
-  grid-row: 4 ;
+  grid-row: 3 ;
 }
 .R90decrement{
   grid-column: 7 / span 2;
-  grid-row: 6;
+  grid-row: 5;
 }
 
 .L90decrement{
   grid-column: 12 / span 2;
-  grid-row: 6;
+  grid-row: 5;
 }
 .L90increment{
   grid-column: 12 / span 2;
-  grid-row: 4;
+  grid-row: 3;
 }
 
 .Nextbutton{
   grid-column: 9 / span 3;
-  grid-row: 9  / span 2;
+  grid-row: 7  ;
+  font-weight: bold;
 }
 .Backbutton{
   grid-column: 9 / span 3;
-  grid-row: 12 / span 2;
+  grid-row: 9;
+  font-weight: bold;
 }
 
 .buttonCalibration{
@@ -223,8 +224,13 @@ p{
 
 .TextArea{
   grid-column: 1 / span 19;
-  grid-row: 15 / span 2;
+  grid-row: 11 / span 2;
   text-align: center;
   font-size: 13px;
   border: none;
+}
+
+#L90decrement,#L90increment,#L0decrement,#L0increment,#R90decrement,#R90increment,#R0decrement,#R0increment{
+  font-size: 18px;
+  font-weight: bold;
 }
