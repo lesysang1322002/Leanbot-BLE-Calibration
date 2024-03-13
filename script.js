@@ -193,6 +193,16 @@ function Next() {
     }
 }
 
+function Step1(){
+    Step = 1;
+    document.getElementById("Next").innerText = "Next";
+    Text_Area.value = "Step 1: Press (+)/(-) to adjust the grippers to 0° position\nPress 'Next' to save and move to the next step";
+    Rvalue.value = "0";
+    Lvalue.value = "0";
+    toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
+    toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "none");
+}
+
 function Step2(){
     Step = 2;
     document.getElementById("Next").innerText = "Next";
@@ -219,14 +229,6 @@ function Step4(){
     toggleDisplayForElements(["Next"], "none");
 }
 
-function Step1(){
-    Step = 1;
-    document.getElementById("Next").innerText = "Next";
-    Text_Area.value = "Step 1: Press (+)/(-) to adjust the grippers to 0° position\nPress 'Next' to save and move to the next step";
-    Rvalue.value = "0";
-    Lvalue.value = "0";
-    toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
-}
 function toggleDisplayForElements(elementIds, displayValue) {
     elementIds.forEach(function(id) {
         let element = document.getElementById(id);
@@ -246,88 +248,64 @@ function Back() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    
-    const decrementBtn = document.querySelector('.L0decrement');
-    const incrementBtn = document.querySelector('.L0increment');
-    const quantityInput = document.querySelector('.angleLvalue');
-    decrementBtn.addEventListener('click', function() {
-      let currentValue = parseInt(quantityInput.value);
-       if (checkconnected) {
-        quantityInput.value = currentValue - 1;
-        send("L"+ quantityInput.value);
-       }
-    });
-    incrementBtn.addEventListener('click', function() {
-      let currentValue = parseInt(quantityInput.value);
-      if (checkconnected) {
-      quantityInput.value = currentValue + 1;
-      send("L"+ quantityInput.value);
+    const buttonSets = [
+      { decrement: '.L0decrement', increment: '.L0increment', input: '.angleLvalue', prefix: 'L' },
+      { decrement: '.R0decrement', increment: '.R0increment', input: '.angleRvalue', prefix: 'R' },
+      { decrement: '.L90decrement', increment: '.L90increment', input: '.angleLvalue', prefix: 'L' },
+      { decrement: '.R90decrement', increment: '.R90increment', input: '.angleRvalue', prefix: 'R' }
+    ];
+  
+    buttonSets.forEach(({ decrement, increment, input, prefix }) => {
+      const decrementBtn = document.querySelector(decrement);
+      const incrementBtn = document.querySelector(increment);
+      const quantityInput = document.querySelector(input);
+      let intervalId;
+  
+      decrementBtn.addEventListener('mousedown', startDecrement);
+      decrementBtn.addEventListener('touchstart', startDecrement);
+  
+      decrementBtn.addEventListener('mouseup', stopDecrement);
+      decrementBtn.addEventListener('touchend', stopDecrement);
+  
+      incrementBtn.addEventListener('mousedown', startIncrement);
+      incrementBtn.addEventListener('touchstart', startIncrement);
+  
+      incrementBtn.addEventListener('mouseup', stopIncrement);
+      incrementBtn.addEventListener('touchend', stopIncrement);
+  
+      function startDecrement() {
+        intervalId = setInterval(decrementValue, 200);
+      }
+  
+      function stopDecrement() {
+        clearInterval(intervalId);
+      }
+  
+      function startIncrement() {
+        intervalId = setInterval(incrementValue, 200);
+      }
+  
+      function stopIncrement() {
+        clearInterval(intervalId);
+      }
+  
+      function decrementValue() {
+        let currentValue = parseInt(quantityInput.value);
+        if (checkconnected) {
+          quantityInput.value = currentValue - 1;
+          send(prefix + quantityInput.value);
+        }
+      }
+  
+      function incrementValue() {
+        let currentValue = parseInt(quantityInput.value);
+        if (checkconnected) {
+          quantityInput.value = currentValue + 1;
+          send(prefix + quantityInput.value);
+        }
       }
     });
-  });
-  document.addEventListener('DOMContentLoaded', function() {
-    const decrementBtn = document.querySelector('.R0decrement');
-    const incrementBtn = document.querySelector('.R0increment');
-    const quantityInput = document.querySelector('.angleRvalue');
-    decrementBtn.addEventListener('click', function() {
-      let currentValue = parseInt(quantityInput.value);
-      if (checkconnected) {
-        quantityInput.value = currentValue - 1;
-        send("R"+ quantityInput.value);
-      }
-    });
-    incrementBtn.addEventListener('click', function() {
-      let currentValue = parseInt(quantityInput.value);
-      if (checkconnected) {
-        quantityInput.value = currentValue + 1;
-        send("R"+ quantityInput.value);
-      }
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', function() {
-
-    const decrementBtn = document.querySelector('.L90decrement');
-    const incrementBtn = document.querySelector('.L90increment');
-    const quantityInput = document.querySelector('.angleLvalue');
-
-    decrementBtn.addEventListener('click', function() {
-      let currentValue = parseInt(quantityInput.value);
-       if (checkconnected) {
-        quantityInput.value = currentValue - 1;
-        send("L"+ quantityInput.value);
-       }
-    });
-
-    incrementBtn.addEventListener('click', function() {
-      let currentValue = parseInt(quantityInput.value);
-      if (checkconnected) {
-        quantityInput.value = currentValue + 1;
-        send("L"+ quantityInput.value);
-      }
-    });
-  });
-  document.addEventListener('DOMContentLoaded', function() {
-    const decrementBtn = document.querySelector('.R90decrement');
-    const incrementBtn = document.querySelector('.R90increment');
-    const quantityInput = document.querySelector('.angleRvalue');
-
-    decrementBtn.addEventListener('click', function() {
-      let currentValue = parseInt(quantityInput.value);
-      if (checkconnected) {
-        quantityInput.value = currentValue - 1;
-        send("R"+ quantityInput.value);
-      }
-    });
-
-    incrementBtn.addEventListener('click', function() {
-      let currentValue = parseInt(quantityInput.value);
-      if (checkconnected) {
-        quantityInput.value = currentValue + 1;
-        send("R"+ quantityInput.value);
-      }
-    });
-  });
+});  
 
 document.addEventListener('DOMContentLoaded', function () {
     var infoButton = document.getElementById('infoButton');
