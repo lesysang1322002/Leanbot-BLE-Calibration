@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
       incrementBtn.addEventListener('touchend', stopIncrement);
   
       function startDecrement() {
-        intervalId = setInterval(decrementValue, 300);
+        intervalId = setInterval(decrementValue, 350);
       }
   
       function stopDecrement() {
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   
       function startIncrement() {
-        intervalId = setInterval(incrementValue, 300);
+        intervalId = setInterval(incrementValue, 350);
       }
   
       function stopIncrement() {
