@@ -260,30 +260,33 @@ document.addEventListener('DOMContentLoaded', function() {
       const incrementBtn = document.querySelector(increment);
       const quantityInput = document.querySelector(input);
       let intervalId;
-      let isTimerRunning = false;
   
       decrementBtn.addEventListener('pointerdown', startDecrement);
-      incrementBtn.addEventListener('pointerdown', startIncrement);
+      decrementBtn.addEventListener('pointerup', stopDecrement);
+      decrementBtn.addEventListener('pointerleave', stopDecrement);
   
-      document.addEventListener('pointerup', stop);
+      incrementBtn.addEventListener('pointerdown', startIncrement);
+      incrementBtn.addEventListener('pointerup', stopIncrement);
+      incrementBtn.addEventListener('pointerleave', stopIncrement);
   
       function startDecrement(event) {
-        if (!isTimerRunning) {
-          isTimerRunning = true;
-          intervalId = setInterval(() => decrementValue(event), 400);
-        }
+        intervalId = setInterval(() => decrementValue(event), 400);
+        console.log("startDe");
+      }
+  
+      function stopDecrement() {
+        clearInterval(intervalId);
+        console.log("stopDe");
       }
   
       function startIncrement(event) {
-        if (!isTimerRunning) {
-          isTimerRunning = true;
-          intervalId = setInterval(() => incrementValue(event), 400);
-        }
+        intervalId = setInterval(() => incrementValue(event), 400);
+        console.log("startIn");
       }
   
-      function stop() {
+      function stopIncrement() {
         clearInterval(intervalId);
-        isTimerRunning = false;
+        console.log("stopIn");
       }
   
       function decrementValue(event) {
@@ -302,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
-  });    
+  });  
 
 document.addEventListener('DOMContentLoaded', function () {
     var infoButton = document.getElementById('infoButton');
