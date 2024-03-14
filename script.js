@@ -260,31 +260,30 @@ document.addEventListener('DOMContentLoaded', function() {
       const incrementBtn = document.querySelector(increment);
       const quantityInput = document.querySelector(input);
       let intervalId;
+      let isTimerRunning = false;
   
       decrementBtn.addEventListener('pointerdown', startDecrement);
-      decrementBtn.addEventListener('pointerup', stopDecrement);
-  
       incrementBtn.addEventListener('pointerdown', startIncrement);
-      incrementBtn.addEventListener('pointerup', stopIncrement);
+  
+      document.addEventListener('pointerup', stop);
   
       function startDecrement(event) {
-        intervalId = setInterval(() => decrementValue(event), 400);
-        console.log("startDe");
-      }
-  
-      function stopDecrement() {
-        clearInterval(intervalId);
-        console.log("stopDe");
+        if (!isTimerRunning) {
+          isTimerRunning = true;
+          intervalId = setInterval(() => decrementValue(event), 400);
+        }
       }
   
       function startIncrement(event) {
-        intervalId = setInterval(() => incrementValue(event), 400);
-        console.log("startIn");
+        if (!isTimerRunning) {
+          isTimerRunning = true;
+          intervalId = setInterval(() => incrementValue(event), 400);
+        }
       }
   
-      function stopIncrement() {
+      function stop() {
         clearInterval(intervalId);
-        console.log("stopIn");
+        isTimerRunning = false;
       }
   
       function decrementValue(event) {
@@ -303,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
-  });  
+  });    
 
 document.addEventListener('DOMContentLoaded', function () {
     var infoButton = document.getElementById('infoButton');
