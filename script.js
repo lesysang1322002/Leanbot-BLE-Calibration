@@ -159,7 +159,7 @@ function handleChangedValue(event) {
                 j++;
             }
             if(angelLvalue !== Lvalue.value || angelRvalue !== Rvalue.value){
-                alert('THAT WRONG MESSAGE, PLEASE RESET THE WEB');
+                alert('WRONG MESSAGE!');
             }
         }
         console.log(string);
