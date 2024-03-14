@@ -262,10 +262,10 @@ document.addEventListener('DOMContentLoaded', function() {
       let intervalId;
   
       decrementBtn.addEventListener('pointerdown', startDecrement);
-      decrementBtn.addEventListener('pointerleave', stopDecrement);
+      decrementBtn.addEventListener('pointerup', stopDecrement);
   
       incrementBtn.addEventListener('pointerdown', startIncrement);
-      incrementBtn.addEventListener('pointerleave', stopIncrement);
+      incrementBtn.addEventListener('pointerup', stopIncrement);
   
       function startDecrement(event) {
         intervalId = setInterval(() => decrementValue(event), 400);
