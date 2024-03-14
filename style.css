@@ -100,47 +100,32 @@ p{
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(17, 25px); 
-  grid-template-rows: repeat(13, 25px);
-  justify-content: center;
-  align-items: center;
-  /* width:100vw; */
-  /* background-color: #7adae9; */
+  grid-template-columns: repeat(17, minmax(25px, 1fr)); 
+  grid-template-rows: repeat(13, minmax(25px, 1fr));
+  place-items: center;
 }
 
 .grid-item {
   border: 3px solid #CCCCCC;
   background-color: white;
-  display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
-  justify-content: center; /* Căn giữa theo chiều ngang */
-  width: 25px;
-  height: 25px;
+  /* width: 50px;
+  height: 50px; */
 }
 
 .angle{
   grid-column: 8 / span 3;
   grid-row: 1 ;
-  display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
-  justify-content: center;
 }
 
 .angleR{
   grid-column: 2 / span 3;
   grid-row: 2 ;
   text-align: center;
-  display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
-  justify-content: center;
 }
 
 .angleL{
   grid-column: 14 / span 3;
   grid-row: 2;
-  display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
-  justify-content: center;
   text-align: center;
 }
 
@@ -220,17 +205,25 @@ p{
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center;
   border-radius: 5px;
+  width:70px;
+  height:40px;
 }
 
 .TextArea{
-  grid-column: 1 / span 19;
+  grid-column: 1 / span 17;
   grid-row: 11 / span 2;
   text-align: center;
-  font-size: 13px;
+  font-size: 18px;
   border: none;
+  width:1000px;
+  height:80px;
 }
 
 #L90decrement,#L90increment,#L0decrement,#L0increment,#R90decrement,#R90increment,#R0decrement,#R0increment{
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
+}
+
+#Backbutton,#Next{
+  width:100px;
 }
