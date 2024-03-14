@@ -262,25 +262,29 @@ document.addEventListener('DOMContentLoaded', function() {
       let intervalId;
   
       decrementBtn.addEventListener('pointerdown', startDecrement);
-      decrementBtn.addEventListener('pointerup', stopDecrement);
+      decrementBtn.addEventListener('pointerleave', stopDecrement);
   
       incrementBtn.addEventListener('pointerdown', startIncrement);
-      incrementBtn.addEventListener('pointerup', stopIncrement);
+      incrementBtn.addEventListener('pointerleave', stopIncrement);
   
       function startDecrement(event) {
         intervalId = setInterval(() => decrementValue(event), 400);
+        console.log("startDe");
       }
   
       function stopDecrement() {
         clearInterval(intervalId);
+        console.log("stopDe");
       }
   
       function startIncrement(event) {
         intervalId = setInterval(() => incrementValue(event), 400);
+        console.log("startIn");
       }
   
       function stopIncrement() {
         clearInterval(intervalId);
+        console.log("stopIn");
       }
   
       function decrementValue(event) {
