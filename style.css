@@ -100,7 +100,7 @@ p{
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(19, 25px); 
+  grid-template-columns: repeat(17, 25px); 
   grid-template-rows: repeat(13, 25px);
   justify-content: center;
   align-items: center;
@@ -119,7 +119,7 @@ p{
 }
 
 .angle{
-  grid-column: 9 / span 3;
+  grid-column: 8 / span 3;
   grid-row: 1 ;
   display: flex;
   align-items: center; /* Căn giữa theo chiều dọc */
@@ -127,7 +127,7 @@ p{
 }
 
 .angleR{
-  grid-column: 3 / span 3;
+  grid-column: 2 / span 3;
   grid-row: 2 ;
   text-align: center;
   display: flex;
@@ -136,7 +136,7 @@ p{
 }
 
 .angleL{
-  grid-column: 15 / span 3;
+  grid-column: 14 / span 3;
   grid-row: 2;
   display: flex;
   align-items: center; /* Căn giữa theo chiều dọc */
@@ -145,7 +145,7 @@ p{
 }
 
 .angleRvalue {
-  grid-column: 3 / span 3;
+  grid-column: 2 / span 3;
   grid-row: 3 / span 3;
   text-align: center;
   cursor: pointer;
@@ -156,7 +156,7 @@ p{
 }
 
 .angleLvalue {
-  grid-column: 15 / span 3;
+  grid-column: 14 / span 3;
   grid-row: 3 / span 3;
   text-align: center;
   cursor: pointer;
@@ -167,48 +167,48 @@ p{
 }
 
 .R0decrement{
-  grid-column: 2 / span 2;
+  grid-column: 1 / span 2;
   grid-row: 7 ;
 }
 .R0increment{
-  grid-column: 5 / span 2;
+  grid-column: 4 / span 2;
   grid-row: 7 ;
 }
 
 .L0increment{
-  grid-column: 14 / span 2;
+  grid-column: 13 / span 2;
   grid-row: 7;
 }
 .L0decrement{
-  grid-column: 17 / span 2;
+  grid-column: 16 / span 2;
   grid-row: 7;
 }
 
 .R90increment{
-  grid-column: 7 / span 2;
+  grid-column: 6 / span 2;
   grid-row: 3 ;
 }
 .R90decrement{
-  grid-column: 7 / span 2;
+  grid-column: 6 / span 2;
   grid-row: 5;
 }
 
 .L90decrement{
-  grid-column: 12 / span 2;
+  grid-column: 11 / span 2;
   grid-row: 5;
 }
 .L90increment{
-  grid-column: 12 / span 2;
+  grid-column: 11 / span 2;
   grid-row: 3;
 }
 
 .Nextbutton{
-  grid-column: 9 / span 3;
+  grid-column: 8 / span 3;
   grid-row: 7  ;
   font-weight: bold;
 }
 .Backbutton{
-  grid-column: 9 / span 3;
+  grid-column: 8 / span 3;
   grid-row: 9;
   font-weight: bold;
 }
