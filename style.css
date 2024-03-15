@@ -99,7 +99,7 @@ p{
 .grid-container {
   display: grid;
   grid-template-columns: repeat(17, 1fr); 
-  grid-template-rows: repeat(13, 1fr);
+  grid-template-rows: repeat(12, 1fr);
   place-items: center;
   justify-content:center; 
 }
@@ -230,7 +230,7 @@ p{
   .grid-container {
     display: grid;
     grid-template-columns: repeat(17, 25px); 
-    grid-template-rows: repeat(13, 25px);
+    grid-template-rows: repeat(12, 25px);
   }
   .angleLvalue {
     width: 75px;

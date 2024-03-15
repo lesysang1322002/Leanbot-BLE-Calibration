@@ -132,7 +132,6 @@ function handleChangedValue(event) {
         string += valueString;
         if(string[0]==='L'){
             Step3();
-            Text_Area.value = string + "Step 3: Press 'Save' to write the calibration result to EEPROM";
         }
         else if(string[0]==='O'){
             Step1();
@@ -142,6 +141,9 @@ function handleChangedValue(event) {
         }
         else if(string[0]==='W'){
             Step4();
+        }
+        else if(string[0]=='S'){
+            Text_Area.value = `Calibration Done`;
         }
         else if(string[0]==='d'){
             let LIndex = string.indexOf('L');
@@ -196,7 +198,7 @@ function Next() {
 function Step1(){
     Step = 1;
     document.getElementById("Next").innerText = "Next";
-    Text_Area.value = "Step 1: Press (+)/(-) to adjust the grippers to 0° position\nPress 'Next' to save and move to the next step";
+    Text_Area.value = "Step 1/4: Adjust both gripper arms to proper 0° position (pointing down)";
     Rvalue.value = "0";
     Lvalue.value = "0";
     toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
@@ -206,7 +208,7 @@ function Step1(){
 function Step2(){
     Step = 2;
     document.getElementById("Next").innerText = "Next";
-    Text_Area.value = " Step 2: Press (+)/(-) to adjust the grippers to 90° position\nPress 'Next' to save and move to the next step";
+    Text_Area.value = "Step 2/4: Adjust both gripper arms to proper 90° position (pointing horizontally)";
     toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "block");
     toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "none");
     Rvalue.value = "90";
@@ -217,13 +219,14 @@ function Step2(){
 function Step3(){
     Step = 3;
     document.getElementById("Next").innerText = "Save";
+    Text_Area.value = "Step 3/4: Observe gripper open and close correctly";
     Done = true;
     toggleDisplayForElements(["R90increment", "R90decrement", "L90increment", "L90decrement"], "none");
 }
 
 function Step4(){
     Step = 4;
-    Text_Area.value = "EEPROM written successfully";
+    Text_Area.value = "Step 4/4: Touch TB1A + TB1B to permanently save calibration settings";
     document.getElementById("Next").innerText = "Done";
     toggleDisplayForElements(["Backbutton"], "none");
     toggleDisplayForElements(["Next"], "none");
@@ -249,13 +252,13 @@ function Back() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const buttonSets = [
-      { decrement: '.L0decrement', increment: '.L0increment', input: '.angleLvalue', prefix: 'L' },
-      { decrement: '.R0decrement', increment: '.R0increment', input: '.angleRvalue', prefix: 'R' },
-      { decrement: '.L90decrement', increment: '.L90increment', input: '.angleLvalue', prefix: 'L' },
-      { decrement: '.R90decrement', increment: '.R90increment', input: '.angleRvalue', prefix: 'R' }
+      { decrement: '.L0decrement', increment: '.L0increment', input: '.angleLvalue' },
+      { decrement: '.R0decrement', increment: '.R0increment', input: '.angleRvalue'},
+      { decrement: '.L90decrement', increment: '.L90increment', input: '.angleLvalue'},
+      { decrement: '.R90decrement', increment: '.R90increment', input: '.angleRvalue'}
     ];
   
-    buttonSets.forEach(({ decrement, increment, input, prefix }) => {
+    buttonSets.forEach(({ decrement, increment, input}) => {
       const decrementBtn = document.querySelector(decrement);
       const incrementBtn = document.querySelector(increment);
       const quantityInput = document.querySelector(input);
@@ -274,29 +277,25 @@ document.addEventListener('DOMContentLoaded', function() {
   
       function startDecrement(event) {
         intervalId = setInterval(() => decrementValue(event), 400);
-        console.log("startDe");
       }
   
       function stopDecrement() {
         clearInterval(intervalId);
-        console.log("stopDe");
       }
   
       function startIncrement(event) {
         intervalId = setInterval(() => incrementValue(event), 400);
-        console.log("startIn");
       }
   
       function stopIncrement() {
         clearInterval(intervalId);
-        console.log("stopIn");
       }
-  
+      
       function decrementValue(event) {
         let currentValue = parseInt(quantityInput.value);
         if (checkconnected) {
           quantityInput.value = currentValue - 1;
-          send(prefix + quantityInput.value);
+          sendLR();
         }
       }
   
@@ -304,11 +303,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentValue = parseInt(quantityInput.value);
         if (checkconnected) {
           quantityInput.value = currentValue + 1;
-          send(prefix + quantityInput.value);
+          sendLR();
         }
       }
     });
-  });  
+  });
+
+function sendLR(){
+    send ('LR' + ' ' + Lvalue.value + ' ' + Rvalue.value);
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     var infoButton = document.getElementById('infoButton');
