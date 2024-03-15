@@ -226,7 +226,7 @@ p{
   font-size: 20px;
   font-weight: bold;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
   .grid-container {
     display: grid;
     grid-template-columns: repeat(17, 25px); 
