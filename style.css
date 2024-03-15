@@ -1,6 +1,4 @@
 body {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   margin: 0;
 }
@@ -100,18 +98,33 @@ p{
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(17, minmax(25px, 1fr)); 
-  grid-template-rows: repeat(13, minmax(25px, 1fr));
+  grid-template-columns: repeat(17, 1fr); 
+  grid-template-rows: repeat(13, 1fr);
   place-items: center;
+  justify-content:center; 
 }
-
+/* .container{
+  display:flex;
+  justify-content:center;
+} */
 .grid-item {
   border: 3px solid #CCCCCC;
   background-color: white;
-  /* width: 50px;
-  height: 50px; */
 }
-
+.buttonCalibration{
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+  border-radius: 5px;
+  width:80px;
+  height:50px;
+}
+#Backbutton,#Next{
+  width:100px;
+}
+/* On screens that are 600px wide or less, the background color is olive */
 .angle{
   grid-column: 8 / span 3;
   grid-row: 1 ;
@@ -136,8 +149,8 @@ p{
   cursor: pointer;
   background: none;
   border-radius: 5px;
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
 }
 
 .angleLvalue {
@@ -147,8 +160,8 @@ p{
   cursor: pointer;
   background: none;
   border-radius: 5px;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
 
 .R0decrement{
@@ -192,21 +205,11 @@ p{
   grid-row: 7  ;
   font-weight: bold;
 }
+
 .Backbutton{
   grid-column: 8 / span 3;
   grid-row: 9;
   font-weight: bold;
-}
-
-.buttonCalibration{
-  background: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
-  justify-content: center;
-  border-radius: 5px;
-  width:70px;
-  height:40px;
 }
 
 .TextArea{
@@ -223,7 +226,58 @@ p{
   font-size: 20px;
   font-weight: bold;
 }
-
-#Backbutton,#Next{
-  width:100px;
+@media screen and (max-width: 700px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(17, 25px); 
+    grid-template-rows: repeat(13, 25px);
+  }
+  .angleLvalue {
+    width: 75px;
+    height: 75px;
+  }
+  .angleRvalue {
+    width: 75px;
+    height: 75px;
+  }
+  .buttonCalibration{
+    width:50px;
+    height:32px;
+  }
+  #Backbutton,#Next{
+    width:75px;
+  }
+  .TextArea{
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(17, 18px); 
+    grid-template-rows: repeat(18, 18px);
+  }
+  .angleLvalue {
+    width: 50px;
+    height: 50px;
+  }
+  .angleRvalue {
+    width: 50px;
+    height: 50px;
+  }
+  .buttonCalibration{
+    width:35px;
+    height:18px;
+  }
+  #Backbutton,#Next{
+    width:50px;
+    font-size: 12px;
+  }
+  .TextArea{
+    font-size: 12px;
+  }
+  #L90decrement,#L90increment,#L0decrement,#L0increment,#R90decrement,#R90increment,#R0decrement,#R0increment{
+    font-size: 12px;
+    font-weight: bold;
+  }
 }

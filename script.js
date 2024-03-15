@@ -116,7 +116,7 @@ function Rescan(){
     toggleDisplayForElements(["R0increment", "R0decrement", "L0increment", "L0decrement"], "block");
     toggleDisplayForElements(["Backbutton", "Next"], "block");
     Text_Area.value = " ";
-
+    document.getElementById("Next").innerText = "Next";
 }
 let string = "";
 let str = "";
