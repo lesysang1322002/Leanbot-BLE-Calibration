@@ -42,9 +42,7 @@ navigator.bluetooth.requestDevice({
         document.getElementById("buttonText").innerText = "Rescan";
         checkconnected = true;
         gattCharacteristic = characteristic
-        gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue);
-        handleAction('Step1');
-        Step1();
+        gattCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue);   
         return gattCharacteristic.startNotifications()
 })
 .catch(error => {
@@ -130,7 +128,11 @@ function handleChangedValue(event) {
     let n = valueString.length;
     if(valueString[n-1]=='\n'){
         string += valueString;
-        if(string[0]==='L'){
+        if(string[0]==='A'){
+            handleAction('Step1');
+            Step1();
+        }
+        else if(string[0]==='L'){
             Step3();
         }
         else if(string[0]==='O'){
