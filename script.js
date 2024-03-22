@@ -370,3 +370,17 @@ document.addEventListener('DOMContentLoaded', function () {
         infoContent.style.display = 'none';
     });
 });
+function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+    
+    tabs.forEach(tab => {
+        tab.classList.remove('active');
+    });
+    contents.forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    document.getElementById(tabId).classList.add('active');
+    document.getElementById('tab' + tabId.slice(-1)).classList.add('active');
+}

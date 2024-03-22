@@ -34,34 +34,53 @@
             </div>
         </div>
     </nav>
-    <div class="container>">
-    <div class="grid-container">
-        <div class="angleL"><p id="textangleLeft" style="margin:0px 0px";>Left</p></div>
-        <div class="angle"><p id="textangle" style="margin:0px 0px";>Gripper</p></div>
-        <div class="angleR"><p id="textangleRight" style="margin:0px 0px";>Right</p></div>
+    <header>
+        <div class="tab-container">
+        <div class="tab active" onclick="showTab('tab1')">Grippers</div>
+        <div class="tab" onclick="showTab('tab2'); send('RGBLeds');">RGB Leds</div>
+        <div class="tab" onclick="showTab('tab3')">Steppers</div>
+        </div>
+    </header>
+    <div id="tab1" class="content active">
+        <div class="container">
+            <div class="grid-container">
+                <div class="angleL"><p id="textangleLeft" style="margin:0px 0px";>Left</p></div>
+                <div class="angle"><p id="textangle" style="margin:0px 0px";>Gripper</p></div>
+                <div class="angleR"><p id="textangleRight" style="margin:0px 0px";>Right</p></div>
+                
+                <textarea  class="TextArea" id="textareaNotification" readonly=""></textarea>
         
-        <textarea  class="TextArea" id="textareaNotification" readonly=""></textarea>
-
-        <input class="angleRvalue" id = "angleRvalue" type="text" value="0" readonly>
-        <input class="angleLvalue" id = "angleLvalue" type="text" value="0" readonly>
-
-        <button class="L0decrement buttonCalibration"   id="L0decrement">-</button>
-        <button class="L0increment buttonCalibration"   id="L0increment">+</button>
-
-        <button class="R0decrement buttonCalibration"   id="R0decrement">-</button>
-        <button class="R0increment buttonCalibration"   id="R0increment">+</button>
-
-        <button class="L90decrement buttonCalibration" style="display:none;"  id="L90decrement">-</button>
-        <button class="L90increment buttonCalibration" style="display:none;"  id="L90increment">+</button>
-
-        <button class="R90decrement buttonCalibration" style="display:none;"  id="R90decrement">-</button>
-        <button class="R90increment buttonCalibration" style="display:none;" id="R90increment">+</button>
-
-        <button class="Nextbutton buttonCalibration" id = "Next" onclick="Next()" >Next</button>
-        <button class="Backbutton buttonCalibration" id = "Backbutton" onclick="Back()" >Back</button>
-
+                <input class="angleRvalue" id = "angleRvalue" type="text" value="0" readonly>
+                <input class="angleLvalue" id = "angleLvalue" type="text" value="0" readonly>
+        
+                <button class="L0decrement buttonCalibration"   id="L0decrement">-</button>
+                <button class="L0increment buttonCalibration"   id="L0increment">+</button>
+        
+                <button class="R0decrement buttonCalibration"   id="R0decrement">-</button>
+                <button class="R0increment buttonCalibration"   id="R0increment">+</button>
+        
+                <button class="L90decrement buttonCalibration" style="display:none;"  id="L90decrement">-</button>
+                <button class="L90increment buttonCalibration" style="display:none;"  id="L90increment">+</button>
+        
+                <button class="R90decrement buttonCalibration" style="display:none;"  id="R90decrement">-</button>
+                <button class="R90increment buttonCalibration" style="display:none;" id="R90increment">+</button>
+        
+                <button class="Nextbutton buttonCalibration" id = "Next" onclick="Next()" >Next</button>
+                <button class="Backbutton buttonCalibration" id = "Backbutton" onclick="Back()" >Back</button>
+                </div>
+            </div>
     </div>
-</div>
+    <div id="tab2" class="content">
+       <div class = "RGB">
+       <button class="buttonRGB" id = "Reset" onclick = "send('Reset')">Reset the order of the LEDs</button>
+       </div>
+    </div>
+    <div id="tab3" class="content">
+        <div class = "stepper">
+        <button class="buttonStepper" id = "ChangeRotation" onclick="send('Change')" >Change the direction of motor rotation</button>
+        <button class="buttonStepper" id = "StopLeanbot" onclick="send('Stop')" >Stop Leanbot</button>
+        </div>
+    </div>
     <p>Open Leanbot code: <a href="https://git.pythaverse.space/lesang/Bao_cao/blob/master/LeanbotBLE_Calibration/LeanbotBLE_Calibration.ino">here</a>.</p>
 </body>
 <script type = "text/javascript" src="script.js"></script>

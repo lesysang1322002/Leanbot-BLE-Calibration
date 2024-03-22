@@ -1,6 +1,7 @@
 body {
   height: 100vh;
   margin: 0;
+  padding: 0;
 }
 .navbar {
   display: flex;
@@ -296,4 +297,62 @@ p{
     font-size: 12px;
     font-weight: bold;
   }
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.tab-container {
+  display: flex;
+  justify-content: space-between;
+}
+.tab.active {
+  background-color: #555;
+}
+.content {
+  display: none;
+  padding: 20px;
+}
+.content.active {
+  display: block;
+}
+
+.buttonStepper{
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+  border-radius: 5px;
+  width:300px;
+  height:100px;
+}
+
+.stepper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.RGB{
+  display: flex;
+  justify-content: center;
+}
+
+.buttonRGB{
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+  border-radius: 5px;
+  width:300px;
+  height:100px;
 }
