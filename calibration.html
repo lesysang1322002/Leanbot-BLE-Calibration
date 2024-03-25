@@ -81,6 +81,7 @@
         If the LEDs rotate clockwise, it means that the order is correct.
         If the LEDs do not rotate clockwise, it means that the order is not correct.
         Press to "Reset the order of the LEDs", observe until the LEDs rotate clockwise.</textarea>
+        <button class="buttonCalibration" id = "Save" onclick="send('saveRGB')" >Save</button>
         </div>
     </div>
     <div id="tab3" class="content">
@@ -96,6 +97,7 @@
                 If Leanbot moves forward, it means it is in the correct direction of rotation.
                 If Leanbot moves backward, press to "Change the direction of motor rotation" again.
             </textarea>
+            <button class="buttonCalibration" onclick="send('saveStep')" >Save</button>
         </div>
     </div>
     <p class="openLinkCode">Open Leanbot code: <a href="https://git.pythaverse.space/lesang/Bao_cao/blob/master/LeanbotBLE_Calibration/LeanbotBLE_Calibration.ino">here</a>.</p>

@@ -104,10 +104,11 @@ p{
   place-items: center;
   justify-content:center; 
 }
-.container{
-  display:flex;
-  justify-content:center;
+.container {
+  display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: column; /* Sắp xếp theo cột */
 }
 .grid-item {
   border: 3px solid #CCCCCC;
@@ -368,7 +369,8 @@ header {
   font-size: 16px;
   border: none;
   width:600px;
-  height:200px;
+  height:120px;
+  margin:0px;
 }
 #textAreaStepper{
   width:680px;
