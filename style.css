@@ -104,10 +104,11 @@ p{
   place-items: center;
   justify-content:center; 
 }
-/* .container{
+.container{
   display:flex;
   justify-content:center;
-} */
+  align-items: center;
+}
 .grid-item {
   border: 3px solid #CCCCCC;
   background-color: white;
@@ -333,7 +334,7 @@ header {
   justify-content: center;
   border-radius: 5px;
   width:300px;
-  height:100px;
+  height:80px;
 }
 
 .stepper{
@@ -354,5 +355,21 @@ header {
   justify-content: center;
   border-radius: 5px;
   width:300px;
-  height:100px;
+  height:80px;
+}
+.openLinkCode{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.textArea{
+  padding-top: 10px;
+  font-size: 16px;
+  border: none;
+  width:600px;
+  height:200px;
+}
+#textAreaStepper{
+  width:680px;
 }
