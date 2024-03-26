@@ -339,6 +339,7 @@ header {
   height:60px;
   background:#5c9ba5;
   font-weight: bold;
+  margin: 0px 50px;
 }
 
 .stepper{
@@ -381,4 +382,7 @@ header {
 }
 #textAreaStepper{
   width:690px;
+}
+#saveSteppers,#SaveRGB{
+  width: 110px;
 }

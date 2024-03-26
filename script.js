@@ -273,6 +273,36 @@ function Back() {
     }
 }
 
+function GrippersTab(){
+    handleAction('Grippers');
+}
+function RGBLedsTab(){
+    handleAction('RGBLeds');
+}
+function SteppersTab(){
+    handleAction('Steppers');
+}
+
+function ResetLeds(){
+    handleAction('ResetRGB');
+}
+
+function saveRGB(){
+    handleAction('saveRGB');
+}
+
+function ChangeRotation(){
+    handleAction('Change');
+}
+
+function stopLeanbot(){
+    handleAction('Stop');
+}
+
+function saveSteppers(){
+    handleAction('saveStep');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const buttonSets = [
       { decrement: '.L0decrement', increment: '.L0increment', input: '.angleLvalue' },

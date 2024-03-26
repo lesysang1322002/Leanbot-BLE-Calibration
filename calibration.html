@@ -36,9 +36,9 @@
     </nav>
     <header>
         <div class="tab-container">
-        <div class="tab active" onclick="showTab('tab1')">Grippers</div>
-        <div class="tab" onclick="showTab('tab2'); send('RGBLeds');">RGB Leds</div>
-        <div class="tab" onclick="showTab('tab3'); send('Steppers');">Steppers</div>
+        <div class="tab active" onclick="showTab('tab1'); GrippersTab();">Grippers</div>
+        <div class="tab" onclick="showTab('tab2'); RGBLedsTab();">RGB Leds</div>
+        <div class="tab" onclick="showTab('tab3'); Steppers();">Steppers</div>
         </div>
     </header>
     <div id="tab1" class="content active">
@@ -73,7 +73,7 @@
     <div id="tab2" class="content">
        <p>RGB Leds</p>
        <div class = "RGB">
-       <button class="buttonRGB" id = "Reset" onclick = "send('Reset')">Reset the order of the LEDs</button>
+       <button class="buttonRGB" id = "Reset" onclick = "ResetLeds()">Reset the order of the LEDs</button>
        </div>
        <div class = "container" >
        <textarea  class="textArea" id="textAreaRGB" readonly="">
@@ -81,14 +81,14 @@
         If the LEDs rotate clockwise, it means that the order is correct.
         If the LEDs do not rotate clockwise, it means that the order is not correct.
         Press to "Reset the order of the LEDs", observe until the LEDs rotate clockwise.</textarea>
-        <button class="buttonCalibration" id = "Save" onclick="send('saveRGB')" >Save</button>
+        <button class="buttonCalibration" id = "SaveRGB" onclick="saveRGB()" >Save</button>
         </div>
     </div>
     <div id="tab3" class="content">
         <p>Stepper</p>
         <div class = "stepper">
-        <button class="buttonStepper" id = "ChangeRotation" onclick="send('Change')" >Change the direction of motor rotation</button>
-        <button class="buttonStepper" id = "StopLeanbot" onclick="send('Stop')" >Stop Leanbot</button>
+        <button class="buttonStepper" id = "ChangeRotation" onclick="ChangeRotation()" >Change the direction of motor rotation</button>
+        <button class="buttonStepper" id = "StopLeanbot" onclick="stopLeanbot()" >Stop Leanbot</button>
         </div>
         <div class = "container" >
             <textarea  class="textArea" id="textAreaStepper" readonly="">
@@ -97,7 +97,7 @@
                 If Leanbot moves forward, it means it is in the correct direction of rotation.
                 If Leanbot moves backward, press to "Change the direction of motor rotation" again.
             </textarea>
-            <button class="buttonCalibration" onclick="send('saveStep')" >Save</button>
+            <button class="buttonCalibration" id = "saveSteppers" onclick="saveSteppers()" >Save</button>
         </div>
     </div>
     <p class="openLinkCode">Open Leanbot code: <a href="https://git.pythaverse.space/lesang/Bao_cao/blob/master/LeanbotBLE_Calibration/LeanbotBLE_Calibration.ino">here</a>.</p>
