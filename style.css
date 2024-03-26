@@ -378,7 +378,7 @@ header {
   font-size: 14px;
   border: none;
   width:600px;
-  height:110px;
+  height:auto;
   margin:0px;
 }
 #textAreaStepper{
