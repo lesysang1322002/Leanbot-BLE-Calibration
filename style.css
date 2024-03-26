@@ -85,22 +85,19 @@ footer {
   color: #333; /* Màu sắc văn bản tùy chọn */
   font-size: 24px; /* Kích thước font tùy chọn */
 }
-
 p{
   font-size:15px;
   margin: 0;
   font-weight: bold;
   text-align: center;
 }
-
 #angleRvalue, #angleLvalue{
   font-size: 25px;
 }
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(17, 1fr); 
-  grid-template-rows: repeat(11, 1fr);
+  grid-template-rows: repeat(12, 1fr);
   place-items: center;
   justify-content:center; 
 }
@@ -133,19 +130,16 @@ p{
   grid-column: 8 / span 3;
   grid-row: 1 ;
 }
-
 .angleR{
   grid-column: 2 / span 3;
   grid-row: 2 ;
   text-align: center;
 }
-
 .angleL{
   grid-column: 14 / span 3;
   grid-row: 2;
   text-align: center;
 }
-
 .angleRvalue {
   grid-column: 2 / span 3;
   grid-row: 3 / span 3;
@@ -156,7 +150,6 @@ p{
   width: 100px;
   height: 100px;
 }
-
 .angleLvalue {
   grid-column: 14 / span 3;
   grid-row: 3 / span 3;
@@ -167,7 +160,6 @@ p{
   width: 100px;
   height: 100px;
 }
-
 .R0decrement{
   grid-column: 1 / span 2;
   grid-row: 7 ;
@@ -176,7 +168,6 @@ p{
   grid-column: 4 / span 2;
   grid-row: 7 ;
 }
-
 .L0increment{
   grid-column: 13 / span 2;
   grid-row: 7;
@@ -185,7 +176,6 @@ p{
   grid-column: 16 / span 2;
   grid-row: 7;
 }
-
 .R90increment{
   grid-column: 6 / span 2;
   grid-row: 3 ;
@@ -194,7 +184,6 @@ p{
   grid-column: 6 / span 2;
   grid-row: 5;
 }
-
 .L90decrement{
   grid-column: 11 / span 2;
   grid-row: 5;
@@ -203,34 +192,29 @@ p{
   grid-column: 11 / span 2;
   grid-row: 3;
 }
-
 .Nextbutton{
   grid-column: 8 / span 3;
   grid-row: 7  ;
   font-weight: bold;
 }
-
 .Backbutton{
   grid-column: 8 / span 3;
   grid-row: 9;
   font-weight: bold;
 }
-
 .TextArea{
   grid-column: 1 / span 17;
-  grid-row: 11;
+  grid-row: 11 / span 2;
   text-align: center;
   font-size: 18px;
   border: none;
   width:1000px;
   height:80px;
 }
-
 #L90decrement,#L90increment,#L0decrement,#L0increment,#R90decrement,#R90increment,#R0decrement,#R0increment{
   font-size: 20px;
   font-weight: bold;
 }
-
 .info-popup {
   display: none;
   position: fixed; 
@@ -245,12 +229,11 @@ p{
   white-space: pre-line;
   line-height: 1;
 }
-
 @media screen and (max-width: 1100px) {
   .grid-container {
     display: grid;
     grid-template-columns: repeat(17, 25px); 
-    grid-template-rows: repeat(11, 25px);
+    grid-template-rows: repeat(12, 25px);
   }
   .angleLvalue {
     width: 75px;
@@ -275,7 +258,7 @@ p{
   .grid-container {
     display: grid;
     grid-template-columns: repeat(17, 18px); 
-    grid-template-rows: repeat(11, 18px);
+    grid-template-rows: repeat(18, 18px);
   }
   .angleLvalue {
     width: 50px;
@@ -328,7 +311,6 @@ header {
   display: block;
   padding:5px;
 }
-
 .buttonStepper{
   background: none;
   cursor: pointer;
@@ -342,17 +324,14 @@ header {
   font-weight: bold;
   margin: 0px 50px;
 }
-
 .stepper{
   display: flex;
   justify-content: space-between;
 }
-
 .RGB{
   display: flex;
   justify-content: center;
 }
-
 .buttonRGB{
   background: none;
   cursor: pointer;
@@ -365,7 +344,6 @@ header {
   background:#5c9ba5;
   font-weight: bold;
 }
-
 .openLinkCode{
   position: fixed;
   bottom: 0;
@@ -378,6 +356,7 @@ header {
   font-size: 14px;
   border: none;
   width:600px;
+  height:110px;
   height:115px;
   margin:0px;
 }
