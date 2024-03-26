@@ -123,6 +123,7 @@ p{
   border-radius: 5px;
   width:80px;
   height:50px;
+  font-weight: bold;
 }
 #Backbutton,#Next{
   width:100px;
@@ -334,8 +335,10 @@ header {
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center;
   border-radius: 5px;
-  width:300px;
+  width:180px;
   height:60px;
+  background:#5c9ba5;
+  font-weight: bold;
 }
 
 .stepper{
@@ -355,9 +358,12 @@ header {
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center;
   border-radius: 5px;
-  width:300px;
+  width:250px;
   height:60px;
+  background:#5c9ba5;
+  font-weight: bold;
 }
+
 .openLinkCode{
   position: absolute;
   bottom: 0;
@@ -366,6 +372,7 @@ header {
 }
 .textArea{
   padding-top: 10px;
+  padding-bottom: 0px;
   font-size: 16px;
   border: none;
   width:600px;
