@@ -335,7 +335,7 @@ header {
   justify-content: center;
   border-radius: 5px;
   width:300px;
-  height:80px;
+  height:60px;
 }
 
 .stepper{
@@ -356,7 +356,7 @@ header {
   justify-content: center;
   border-radius: 5px;
   width:300px;
-  height:80px;
+  height:60px;
 }
 .openLinkCode{
   position: absolute;
@@ -369,9 +369,9 @@ header {
   font-size: 16px;
   border: none;
   width:600px;
-  height:120px;
+  height:135px;
   margin:0px;
 }
 #textAreaStepper{
-  width:680px;
+  width:690px;
 }
