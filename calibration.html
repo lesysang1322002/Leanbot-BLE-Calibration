@@ -71,7 +71,7 @@
             </div>
     </div>
     <div id="tab2" class="content">
-       <p>RGB Leds</p>
+       <p style = "margin:5px;">RGB Leds</p>
        <div class = "RGB">
        <button class="buttonRGB" id = "Reset" onclick = "ResetLeds()">Reset the order of the LEDs</button>
        </div>
@@ -79,13 +79,13 @@
        <textarea  class="textArea" id="textAreaRGB" readonly="">
         Observe the LEDs:
         If the LEDs rotate clockwise, it means that the order is correct.
-        If the LEDs do not rotate clockwise, it means that the order is not correct.
-        Press to "Reset the order of the LEDs", observe until the LEDs rotate clockwise.</textarea>
+        If the LEDs do not rotate clockwise, press to "Reset the order of the LEDs".
+        Observe until the LEDs rotate clockwise.</textarea>
         <button class="buttonCalibration" id = "SaveRGB" onclick="saveRGB()" >Save</button>
         </div>
     </div>
     <div id="tab3" class="content">
-        <p>Stepper</p>
+        <p style = "margin:5px;" >Stepper</p>
         <div class = "stepper">
         <button class="buttonStepper" id = "ChangeRotation" onclick="ChangeRotation()" >Change the direction of motor rotation</button>
         <button class="buttonStepper" id = "StopLeanbot" onclick="stopLeanbot()" >Stop Leanbot</button>

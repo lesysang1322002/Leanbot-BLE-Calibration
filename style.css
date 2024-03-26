@@ -326,6 +326,7 @@ header {
 }
 .content.active {
   display: block;
+  padding:5px;
 }
 
 .buttonStepper{
@@ -384,5 +385,6 @@ header {
   width:690px;
 }
 #saveSteppers,#SaveRGB{
-  width: 110px;
+  width: 100px;
+  height: 40px;
 }
