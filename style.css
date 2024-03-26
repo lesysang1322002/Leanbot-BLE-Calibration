@@ -100,7 +100,7 @@ p{
 .grid-container {
   display: grid;
   grid-template-columns: repeat(17, 1fr); 
-  grid-template-rows: repeat(12, 1fr);
+  grid-template-rows: repeat(11, 1fr);
   place-items: center;
   justify-content:center; 
 }
@@ -218,7 +218,7 @@ p{
 
 .TextArea{
   grid-column: 1 / span 17;
-  grid-row: 11 / span 2;
+  grid-row: 11;
   text-align: center;
   font-size: 18px;
   border: none;
@@ -250,7 +250,7 @@ p{
   .grid-container {
     display: grid;
     grid-template-columns: repeat(17, 25px); 
-    grid-template-rows: repeat(12, 25px);
+    grid-template-rows: repeat(11, 25px);
   }
   .angleLvalue {
     width: 75px;
@@ -275,7 +275,7 @@ p{
   .grid-container {
     display: grid;
     grid-template-columns: repeat(17, 18px); 
-    grid-template-rows: repeat(18, 18px);
+    grid-template-rows: repeat(11, 18px);
   }
   .angleLvalue {
     width: 50px;
