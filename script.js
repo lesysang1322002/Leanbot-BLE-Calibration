@@ -178,12 +178,6 @@ function handleChangedValue(event) {
         else if(stringcheck === 'SetCa'){
             Step3();
         }
-        else if(stringcheck === 'Stepp'){
-            Text_Steppers.value = "Steppers Calibration Saved";
-        }
-        else if(stringcheck === 'RGBLe'){
-            Text_RGBLeds.value = "RGBLeds Calibration Saved";
-        }
         else if(string[0]==='T'){
             Step4();
         }
