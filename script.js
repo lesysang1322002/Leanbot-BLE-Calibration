@@ -122,13 +122,13 @@ function Rescan(){
     Text_Area.value = " ";
     document.getElementById("Next").innerText = "Next";
     checkmessage = false;
-    Text_Steppers.value = `
-    Press to "Change the direction of motor rotation"
+    Text_Steppers.value = 
+   `Press to "Change the direction of motor rotation"
     Observe the effect: 
     If Leanbot moves forward, it means it is in the correct direction of rotation.
     If Leanbot moves backward, press to "Change the direction of motor rotation" again.`;
-    Text_RGBLeds.value = `
-    Observe the LEDs:
+    Text_RGBLeds.value = 
+   `Observe the LEDs:
     If the LEDs rotate clockwise, it means that the order is correct.
     If the LEDs do not rotate clockwise, press to "Reset the order of the LEDs".
     Observe until the LEDs rotate clockwise.`;
