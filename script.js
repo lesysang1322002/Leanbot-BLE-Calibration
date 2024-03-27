@@ -122,7 +122,7 @@ function Rescan(){
     Text_Area.value = " ";
     document.getElementById("Next").innerText = "Next";
     checkmessage = false;
-    Text_RGBLeds.value = `
+    Text_Steppers.value = `
     Press to "Change the direction of motor rotation"
     Observe the effect: 
     If Leanbot moves forward, it means it is in the correct direction of rotation.
