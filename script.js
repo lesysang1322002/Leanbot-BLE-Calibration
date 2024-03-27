@@ -4,6 +4,8 @@ var gattCharacteristic;
 var bluetoothDeviceDetected;
 
 let Text_Area = document.getElementById("textareaNotification");
+let Text_RGBLeds = document.getElementById("textAreaRGB");
+let Text_Steppers = document.getElementById("textAreaStepper");
 
 function isWebBluetoothEnabled() {
     if (!navigator.bluetooth) {
@@ -165,6 +167,12 @@ function handleChangedValue(event) {
         }
         else if(stringcheck === 'SetCa'){
             Step3();
+        }
+        else if(stringcheck === 'Stepp'){
+            Text_Steppers.value = "Steppers Calibration Saved";
+        }
+        else if(stringcheck === 'RGBLe'){
+            Text_RGBLeds.value = "RGBLeds Calibration Saved";
         }
         else if(string[0]==='T'){
             Step4();
