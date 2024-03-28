@@ -169,6 +169,9 @@ function handleChangedValue(event) {
             old90R = string.substring(commaIndices[2] + 2, rightBracketIndex);
             console.log(old00L + "," + old90L + "," + old00R + "," + old90R);
         }
+        else if(stringcheck ==='TB1A'){
+            Text_Area.value = `TB1A + TB1B touched. Calibration settings saved. Calibration Done.`;
+        }
         if(string[0]==='O'){
             Step1();
         }
@@ -180,9 +183,6 @@ function handleChangedValue(event) {
         }
         else if(string[0]==='T'){
             Step4();
-        }
-        else if(string[0]=='S'){
-            Text_Area.value = `TB1A + TB1B touched. Calibration settings saved. Calibration Done.`;
         }
         else if(string[0]==='d'){
             let LIndex = string.indexOf('L');

@@ -309,7 +309,7 @@ header {
   align-items: center;
 }
 .tab {
-  padding: 10px 20px;
+  padding: 10px 200px;
   cursor: pointer;
 }
 .tab-container {
@@ -338,7 +338,7 @@ header {
   height:60px;
   background:#5c9ba5;
   font-weight: bold;
-  margin: 0px 50px;
+  margin: 0px 200px;
 }
 .stepper{
   display: flex;
@@ -367,7 +367,7 @@ header {
   text-align: center;
 }
 #textAreaStepper{
-  width:690px;
+  width:700px;
 }
 #saveSteppers,#SaveRGB{
   width: 100px;
