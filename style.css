@@ -343,12 +343,6 @@ header {
     padding: 10px 10px;
     cursor: pointer;
   }
-  .column{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row; /* Sắp xếp theo cột */
-  }
   .buttonStepper{
     margin: 0px 10px;
   }
