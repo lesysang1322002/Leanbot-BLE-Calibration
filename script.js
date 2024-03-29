@@ -162,7 +162,7 @@ function handleChangedValue(event) {
         else if(stringcheck ==='TB1A '){
             Text_Area.value = `TB1A + TB1B touched. Calibration settings saved. Calibration Done.`;
         }
-        if(string[0]==='O'){
+        else if(string[0]==='O'){
             Step1();
         }
         else if(string[0]==='C'){
