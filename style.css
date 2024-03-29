@@ -324,11 +324,11 @@ header {
   .textArea{
     font-size: 14px;
     width:600px;
-    height:95px;
+    height:84px;
     padding-top: 2px;
   }
   #textAreaStepper{
-    height:100px;
+    height:92px;
   }
   .tab{
     padding: 10px 10px;
