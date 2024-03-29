@@ -70,29 +70,31 @@
             </div>
     </div>
     <div id="tab2" class="content">
+       <div class = "row">
+       <div class = "container" >
        <p style = "margin:5px;">RGB Leds</p>
        <div class = "RGB">
        <button class="buttonRGB" id = "Reset" onclick = "ResetLeds()">Reset the order of the LEDs</button>
        </div>
-       <div class = "container" >
        <textarea  class="textArea" id="textAreaRGB" readonly="">
         Observe the LEDs:
         If the LEDs rotate clockwise, it means that the order is correct.
         If the LEDs do not rotate clockwise, press to "Reset the order of the LEDs".
         Observe until the LEDs rotate clockwise.</textarea>
         </div>
+        <div class = "container" >
         <p style = "margin:5px;" >Steppers</p>
         <div class = "stepper">
         <button class="buttonStepper" id = "ChangeRotation" onclick="ChangeRotation()" >Change the direction of motor rotation</button>
         <button class="buttonStepper" id = "StopLeanbot" onclick="stopLeanbot()" >Stop Leanbot</button>
         </div>
-        <div class = "container" >
             <textarea  class="textArea" id="textAreaStepper" readonly="">
                 Press to "Change the direction of motor rotation"
                 Observe the effect: 
                 If Leanbot moves forward, it means it is in the correct direction of rotation.
                 If Leanbot moves backward, press to "Change the direction of motor rotation" again.
             </textarea>
+        </div>
         </div>
     </div>
     <p class="openLinkCode">Open Leanbot code: <a href="https://git.pythaverse.space/lesang/Bao_cao/blob/master/LeanbotBLE_Calibration/LeanbotBLE_Calibration.ino">here</a>.</p>
