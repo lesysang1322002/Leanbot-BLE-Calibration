@@ -324,15 +324,18 @@ header {
   .textArea{
     font-size: 14px;
     width:600px;
-    height:115px;
+    height:95px;
     padding-top: 10px;
+  }
+  #textAreaStepper{
+    height:100px;
   }
   .tab{
     padding: 10px 10px;
     cursor: pointer;
   }
-  .buttonStepper{
-    margin: 0px 10px;
+  .buttonRGB-Stepper{
+    height: 40px;
   }
 }
 @media screen and (max-width: 400px) {
