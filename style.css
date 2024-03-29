@@ -350,7 +350,7 @@ header {
     padding-top: 10px;
   }
   .tab{
-    padding: 10px 100px;
+    padding: 10px 10px;
     cursor: pointer;
   }
   .column{
