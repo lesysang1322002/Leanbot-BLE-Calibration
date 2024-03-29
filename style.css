@@ -208,7 +208,7 @@ p{
   text-align: center;
   font-size: 18px;
   border: none;
-  width:1000px;
+  width:900px;
   height:80px;
 }
 #L90decrement,#L90increment,#L0decrement,#L0increment,#R90decrement,#R90increment,#R0decrement,#R0increment{
@@ -282,6 +282,7 @@ header {
 .stepper{
   display: flex;
   justify-content: space-between;
+  width: 100vw;
 }
 .RGB{
   display: flex;
@@ -309,7 +310,7 @@ header {
 .openLinkCode{
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   text-align: center;
 }
 #textAreaStepper{
