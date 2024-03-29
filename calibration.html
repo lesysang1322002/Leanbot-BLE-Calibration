@@ -29,7 +29,7 @@
                 <h6>Service UUID: 0000ffe0-0000-1000-8000-00805f9b34fb</h6>
                 <h6>Characteristic UUID: 0000ffe1-0000-1000-8000-00805f9b34fb</h6>
                 <footer class="text-center py-2" style="color: red">
-                    &copy; DTT v1
+                    &copy; DTT v2
                 </footer>
             </div>
         </div>
@@ -73,8 +73,8 @@
        <div class = "container" >
        <p style = "margin:5px;">RGB Leds</p>
        <div class = "RGB">
-       <button class="buttonRGB" id = "Reset" onclick = "ResetLeds()">Mode 1</button>
-       <button class="buttonRGB" id = "Reset" onclick = "ResetLeds()">Mode 2</button>
+       <button class="buttonRGB-Stepper" id = "Reset" onclick = "ResetLeds()">Mode 1</button>
+       <button class="buttonRGB-Stepper" id = "Reset" onclick = "ResetLeds()">Mode 2</button>
        </div>
        <textarea  class="textArea" id="textAreaRGB" readonly="">
         Observe the LEDs:
@@ -85,9 +85,9 @@
         <div class = "container" >
         <p style = "margin:5px;" >Steppers</p>
         <div class = "stepper">
-        <button class="buttonStepper" id = "ChangeRotation" onclick="ChangeRotation()" >Direction 1</button>
-        <button class="buttonStepper" id = "StopLeanbot" onclick="stopLeanbot()" >Stop Leanbot</button>
-        <button class="buttonStepper" id = "ChangeRotation" onclick="ChangeRotation()" >Direction 2</button>
+        <button class="buttonRGB-Stepper" id = "ChangeRotation" onclick="ChangeRotation()" >Direction 1</button>
+        <button class="buttonRGB-Stepper" id = "StopLeanbot" onclick="stopLeanbot()" >Stop Leanbot</button>
+        <button class="buttonRGB-Stepper" id = "ChangeRotation" onclick="ChangeRotation()" >Direction 2</button>
         </div>
             <textarea  class="textArea" id="textAreaStepper" readonly="">
                 Observe the effect: 

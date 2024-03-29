@@ -266,18 +266,6 @@ header {
   display: block;
   padding:5px;
 }
-.buttonStepper{
-  background: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
-  justify-content: center;
-  border-radius: 5px;
-  width:100px;
-  height:60px;
-  font-weight: bold;
-  margin: 0px 200px;
-}
 .stepper{
   display: flex;
   justify-content: space-between;
@@ -288,17 +276,17 @@ header {
   justify-content: space-between;
   width: 100vw;
 }
-.buttonRGB{
+.buttonRGB-Stepper{
   background: none;
   cursor: pointer;
   display: flex;
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center;
   border-radius: 5px;
-  width:100px;
+  width:150px;
   height:60px;
   font-weight: bold;
-  margin: 0px 200px;
+  margin: 0px 50px;
 }
 .openLinkCode{
   position: fixed;
