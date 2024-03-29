@@ -29,7 +29,7 @@
                 <h6>Service UUID: 0000ffe0-0000-1000-8000-00805f9b34fb</h6>
                 <h6>Characteristic UUID: 0000ffe1-0000-1000-8000-00805f9b34fb</h6>
                 <footer class="text-center py-2" style="color: red">
-                    &copy; DTT v5
+                    &copy; DTT v1
                 </footer>
             </div>
         </div>
@@ -70,29 +70,29 @@
             </div>
     </div>
     <div id="tab2" class="content">
-       <div class = "row">
        <div class = "container" >
        <p style = "margin:5px;">RGB Leds</p>
        <div class = "RGB">
-       <button class="buttonRGB" id = "Reset" onclick = "ResetLeds()">Reset the order of the LEDs</button>
+       <button class="buttonRGB" id = "Reset" onclick = "ResetLeds()">Mode 1</button>
+       <button class="buttonRGB" id = "Reset" onclick = "ResetLeds()">Mode 2</button>
        </div>
        <textarea  class="textArea" id="textAreaRGB" readonly="">
         Observe the LEDs:
         If the LEDs rotate clockwise, it means that the order is correct.
-        If the LEDs do not rotate clockwise, press to "Reset the order of the LEDs".
-        Observe until the LEDs rotate clockwise.</textarea>
+        If the LEDs do not rotate clockwise, press to Red Mode.
+        </textarea>
         </div>
         <div class = "container" >
         <p style = "margin:5px;" >Steppers</p>
         <div class = "stepper">
-        <button class="buttonStepper" id = "ChangeRotation" onclick="ChangeRotation()" >Change the direction of motor rotation</button>
+        <button class="buttonStepper" id = "ChangeRotation" onclick="ChangeRotation()" >Direction 1</button>
         <button class="buttonStepper" id = "StopLeanbot" onclick="stopLeanbot()" >Stop Leanbot</button>
+        <button class="buttonStepper" id = "ChangeRotation" onclick="ChangeRotation()" >Direction 2</button>
         </div>
             <textarea  class="textArea" id="textAreaStepper" readonly="">
-                Press to "Change the direction of motor rotation"
                 Observe the effect: 
                 If Leanbot moves forward, it means it is in the correct direction of rotation.
-                If Leanbot moves backward, press to "Change the direction of motor rotation" again.
+                If Leanbot moves backward, press to Red Direction.
             </textarea>
         </div>
         </div>

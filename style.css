@@ -273,9 +273,8 @@ header {
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center;
   border-radius: 5px;
-  width:180px;
+  width:100px;
   height:60px;
-  background:#5c9ba5;
   font-weight: bold;
   margin: 0px 200px;
 }
@@ -286,14 +285,8 @@ header {
 }
 .RGB{
   display: flex;
-  justify-content: center;
-}
-.half-width {
-  width: 50%;
-  background-color: #ccc;
-  position: fixed;
-  top: 0;
-  left: 0;
+  justify-content: space-between;
+  width: 100vw;
 }
 .buttonRGB{
   background: none;
@@ -302,10 +295,10 @@ header {
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center;
   border-radius: 5px;
-  width:250px;
+  width:100px;
   height:60px;
-  background:#5c9ba5;
   font-weight: bold;
+  margin: 0px 200px;
 }
 .openLinkCode{
   position: fixed;
@@ -315,10 +308,6 @@ header {
 }
 #textAreaStepper{
   width:700px;
-}
-#saveSteppers,#SaveRGB{
-  width: 100px;
-  height: 30px;
 }
 @media screen and (max-width: 1100px) {
   .grid-container {
