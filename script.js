@@ -122,16 +122,6 @@ function Rescan(){
     Text_Area.value = " ";
     document.getElementById("Next").innerText = "Next";
     checkmessage = false;
-    Text_Steppers.value = 
-   `Press to "Change the direction of motor rotation"
-    Observe the effect: 
-    If Leanbot moves forward, it means it is in the correct direction of rotation.
-    If Leanbot moves backward, press to "Change the direction of motor rotation" again.`;
-    Text_RGBLeds.value = 
-   `Observe the LEDs:
-    If the LEDs rotate clockwise, it means that the order is correct.
-    If the LEDs do not rotate clockwise, press to "Reset the order of the LEDs".
-    Observe until the LEDs rotate clockwise.`;
 }
 
 let string = "";
@@ -169,7 +159,7 @@ function handleChangedValue(event) {
             old90R = string.substring(commaIndices[2] + 2, rightBracketIndex);
             console.log(old00L + "," + old90L + "," + old00R + "," + old90R);
         }
-        else if(stringcheck ==='TB1A'){
+        else if(stringcheck ==='TB1A '){
             Text_Area.value = `TB1A + TB1B touched. Calibration settings saved. Calibration Done.`;
         }
         if(string[0]==='O'){
@@ -292,9 +282,22 @@ function RGBStep(){
     handleAction('RGB+Step');
 }
 
-function ResetLeds(){
-    handleAction('ResetRGB');
+function ModeLed1(){
+    handleAction('RGB 2');
 }
+
+function ModeLed2(){
+    handleAction('RGB 1');
+}
+
+function StepDir1(){
+    handleAction('Step 255');
+}
+
+function StepDir2(){
+    handleAction('Step 119');
+}
+
 
 function saveRGB(){
     handleAction('saveRGB');
