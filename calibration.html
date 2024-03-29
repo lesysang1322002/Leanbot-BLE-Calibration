@@ -37,7 +37,7 @@
     <header>
         <div class="tab-container">
         <div class="tab active" onclick="showTab('tab1'); GrippersTab();">Grippers</div>
-        <div class="tab" onclick="showTab('tab2'); RGBLedsTab();">RGB Leds + Steppers</div>
+        <div class="tab" onclick="showTab('tab2'); RGBStep();">RGB Leds + Steppers</div>
         </div>
     </header>
     <div id="tab1" class="content active">
@@ -73,8 +73,8 @@
        <div class = "container" >
        <p style = "margin:5px;">RGB Leds</p>
        <div class = "RGB">
-       <button class="buttonRGB-Stepper" id = "Reset" onclick = "ResetLeds()">Mode 1</button>
-       <button class="buttonRGB-Stepper" id = "Reset" onclick = "ResetLeds()">Mode 2</button>
+       <button class="buttonRGB-Stepper" id = "Reset" onclick = "ResetLeds()">Led mode 1</button>
+       <button class="buttonRGB-Stepper" id = "Reset" onclick = "ResetLeds()">Led mode 2</button>
        </div>
        <textarea  class="textArea" id="textAreaRGB" readonly="">Observe the LEDs:
         If the LEDs rotate clockwise, it means that the order is correct.

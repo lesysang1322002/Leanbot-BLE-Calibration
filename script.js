@@ -288,11 +288,8 @@ function Back() {
 function GrippersTab(){
     handleAction('Grippers');
 }
-function RGBLedsTab(){
-    handleAction('RGBLeds');
-}
-function SteppersTab(){
-    handleAction('Steppers');
+function RGBStep(){
+    handleAction('RGB+Step');
 }
 
 function ResetLeds(){
