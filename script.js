@@ -169,23 +169,34 @@ function handleChangedValue(event) {
         else if(stringcheck ==='TB1A '){
             Text_Area.value = `TB1A + TB1B touched. Calibration settings saved. Calibration Done.`;
         }
-        else if(stringcheck ==='LedMo'){
-            ModeLed = string[9];
-            StepDir = string[23] + string[24] + string[25];
+        else if(stringcheck ==='NewLe'){
+            let NewModeLed = string[12];
+            let NewStepDir = string[29] + string[30] + string[31];
+            if(NewModeLed !== ModeLed || NewStepDir !== StepDir){
+                alert('WRONG MESSAGE!');
+            }
+        }
+        else if(stringcheck ==='OldLe'){
+            ModeLed = string[12];
+            StepDir = string[29] + string[30] + string[31];
             // console.log(ModeLed + " " + StepDir);
             if(ModeLed === '2'){
                 Led1.checked = true;
-                console.log("Led1 checked");
+                ModeLed = '2';
             }
             if(ModeLed === '1'){
                 Led2.checked = true;
+                ModeLed = '1';
             }
             if(StepDir === '255'){
                 Dir1.checked = true;
+                StepDir = '255';
             }
             if(StepDir === '119'){
                 Dir2.checked = true;
+                StepDir = '119';
             }
+            handleAction('RBG ' + ModeLed + ' ' + 'Step ' + StepDir);
         }
         else if(string[0]==='O'){
             Step1();
@@ -238,13 +249,12 @@ radioInputs.forEach(function(input) {
 
 function handleRadioChange(event) {
     if(Led1.checked){
-        ModeLed1();
-        console.log("ModeLed1");
+       ModeLed = '2';
     }
     else if(Led2.checked){
-        ModeLed2();
-        console.log("ModeLed2");
+        ModeLed = '1';
     }
+    handleAction('RGB '+ ModeLed + ' ' + 'Step ' + StepDir);
 }
 
 var radioInputs2 = document.querySelectorAll('#dir1, #dir2, #stop');
@@ -255,16 +265,15 @@ radioInputs2.forEach(function(input) {
 
 function handleRadioChange2(event) {
     if(Dir1.checked){
-        StepDir1();
-        // console.log("StepDir1");
+        StepDir = '255';
+        handleAction('RGB ' + ModeLed + ' ' + 'Step' + ' ' + StepDir);
     }
     else if(Dir2.checked){
-        StepDir2();
-        // console.log("StepDir2");
+        StepDir = '119';
+        handleAction('RGB ' + ModeLed + ' ' + 'Step' + ' ' + StepDir);
     }
     else if(Stop.checked){
         stopLeanbot();
-        // console.log("Stop");
     }
 }
 
