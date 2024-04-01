@@ -130,6 +130,12 @@ let angelLvalue = "";
 let angelRvalue = "";
 let checkmessage = false;
 let old00L,old00R,old90L,old90R;
+let ModeLed;
+let StepDir;
+let element1 = document.getElementById("ModeLed1");
+let element2 = document.getElementById("ModeLed2");
+let element3 = document.getElementById("StepDir1");
+let element4 = document.getElementById("StepDir2");
 
 function handleChangedValue(event) {
     let data = event.target.value;
@@ -161,6 +167,27 @@ function handleChangedValue(event) {
         }
         else if(stringcheck ==='TB1A '){
             Text_Area.value = `TB1A + TB1B touched. Calibration settings saved. Calibration Done.`;
+        }
+        else if(stringcheck ==='LedMo'){
+            ModeLed = string[9];
+            StepDir = string[23] + string[24] + string[25];
+            console.log(ModeLed + " " + StepDir);
+            if(ModeLed === '2'){
+                element1.style.background ="green";
+                element2.style.background ="red";
+            }
+            else{
+                element1.style.background ="red";
+                element2.style.background ="green";
+            }
+            if(StepDir === '255'){
+                element3.style.background ="green";
+                element4.style.background ="red";
+            }
+            else{
+                element3.style.background ="red";
+                element4.style.background ="green";
+            }
         }
         else if(string[0]==='O'){
             Step1();
