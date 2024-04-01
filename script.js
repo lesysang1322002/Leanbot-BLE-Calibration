@@ -132,10 +132,11 @@ let checkmessage = false;
 let old00L,old00R,old90L,old90R;
 let ModeLed;
 let StepDir;
-let element1 = document.getElementById("ModeLed1");
-let element2 = document.getElementById("ModeLed2");
-let element3 = document.getElementById("StepDir1");
-let element4 = document.getElementById("StepDir2");
+let Led1 = document.getElementById("led1");
+let Led2 = document.getElementById("led2");
+let Dir1 = document.getElementById("dir1");
+let Dir2 = document.getElementById("dir2");
+let Stop = document.getElementById("stop"); 
 
 function handleChangedValue(event) {
     let data = event.target.value;
@@ -163,7 +164,7 @@ function handleChangedValue(event) {
             old90L = string.substring(commaIndices[0] + 2, commaIndices[1]);
             old00R = string.substring(commaIndices[1] + 2, commaIndices[2]);
             old90R = string.substring(commaIndices[2] + 2, rightBracketIndex);
-            console.log(old00L + "," + old90L + "," + old00R + "," + old90R);
+            // console.log(old00L + "," + old90L + "," + old00R + "," + old90R);
         }
         else if(stringcheck ==='TB1A '){
             Text_Area.value = `TB1A + TB1B touched. Calibration settings saved. Calibration Done.`;
@@ -171,22 +172,19 @@ function handleChangedValue(event) {
         else if(stringcheck ==='LedMo'){
             ModeLed = string[9];
             StepDir = string[23] + string[24] + string[25];
-            console.log(ModeLed + " " + StepDir);
+            // console.log(ModeLed + " " + StepDir);
             if(ModeLed === '2'){
-                element1.style.background ="green";
-                element2.style.background ="red";
+                Led1.checked = true;
+                console.log("Led1 checked");
             }
-            else{
-                element1.style.background ="red";
-                element2.style.background ="green";
+            if(ModeLed === '1'){
+                Led2.checked = true;
             }
             if(StepDir === '255'){
-                element3.style.background ="green";
-                element4.style.background ="red";
+                Dir1.checked = true;
             }
-            else{
-                element3.style.background ="red";
-                element4.style.background ="green";
+            if(StepDir === '119'){
+                Dir2.checked = true;
             }
         }
         else if(string[0]==='O'){
@@ -230,6 +228,43 @@ function handleChangedValue(event) {
 function handleAction(action) {
     if (checkconnected) {
         send(action);
+    }
+}
+var radioInputs = document.querySelectorAll('#led1, #led2');
+
+radioInputs.forEach(function(input) {
+    input.addEventListener('change', handleRadioChange);
+});
+
+function handleRadioChange(event) {
+    if(Led1.checked){
+        ModeLed1();
+        console.log("ModeLed1");
+    }
+    else if(Led2.checked){
+        ModeLed2();
+        console.log("ModeLed2");
+    }
+}
+
+var radioInputs2 = document.querySelectorAll('#dir1, #dir2, #stop');
+
+radioInputs2.forEach(function(input) {
+    input.addEventListener('change', handleRadioChange2);
+});
+
+function handleRadioChange2(event) {
+    if(Dir1.checked){
+        StepDir1();
+        // console.log("StepDir1");
+    }
+    else if(Dir2.checked){
+        StepDir2();
+        // console.log("StepDir2");
+    }
+    else if(Stop.checked){
+        stopLeanbot();
+        // console.log("Stop");
     }
 }
 
