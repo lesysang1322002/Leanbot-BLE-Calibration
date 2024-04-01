@@ -349,7 +349,7 @@ header {
   .grid-container {
     display: grid;
     grid-template-columns: repeat(17, 18px); 
-    grid-template-rows: repeat(18, 18px);
+    grid-template-rows: repeat(12, 18px);
   }
   .angleLvalue {
     width: 50px;
