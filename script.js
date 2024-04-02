@@ -182,19 +182,15 @@ function handleChangedValue(event) {
             // console.log(ModeLed + " " + StepDir);
             if(ModeLed === '2'){
                 Led1.checked = true;
-                ModeLed = '2';
             }
             if(ModeLed === '1'){
                 Led2.checked = true;
-                ModeLed = '1';
             }
             if(StepDir === '255'){
                 Dir1.checked = true;
-                StepDir = '255';
             }
             if(StepDir === '119'){
                 Dir2.checked = true;
-                StepDir = '119';
             }
             handleAction('RBG ' + ModeLed + ' ' + 'Step ' + StepDir);
         }
