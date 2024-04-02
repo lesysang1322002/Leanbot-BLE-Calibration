@@ -358,7 +358,8 @@ header {
     font-size: 12px;
   }
   .TextArea{
-    font-size: 10px;
+    font-size: 11px;
+    width: 100vw;
   }
   #L90decrement,#L90increment,#L0decrement,#L0increment,#R90decrement,#R90increment,#R0decrement,#R0increment{
     font-size: 12px;
