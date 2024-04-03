@@ -338,6 +338,10 @@ header {
   .tab{
     padding: 10px 10px;
   }
+  .border {
+    width: 50%;
+    float: left;
+}
 }
 @media screen and (max-width: 400px) {
   .grid-container {
