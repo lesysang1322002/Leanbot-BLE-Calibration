@@ -493,3 +493,18 @@ function showTab(tabId) {
     document.getElementById(tabId).classList.add('active');
     document.getElementById('tab' + tabId.slice(-1)).classList.add('active');
 }
+
+var tabs = document.querySelectorAll('.tab');
+
+// Add event listener to each tab
+tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+
+        // Add active class to clicked tab
+        this.classList.add('active');
+    });
+});

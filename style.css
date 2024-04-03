@@ -280,7 +280,7 @@ header {
   background: none;
   cursor: pointer;
   display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
+  align-items: center; 
   justify-content: center;
   border-radius: 5px;
   width:150px;
@@ -294,6 +294,7 @@ header {
   width: 100vw;
   text-align: center;
 }
+
 #textAreaStepper{
   width:700px;
 }
@@ -303,6 +304,9 @@ header {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
+}
+.active-tab {
+  background-color: #CCCCCC;
 }
 @media screen and (max-width: 1100px) {
   .grid-container {
