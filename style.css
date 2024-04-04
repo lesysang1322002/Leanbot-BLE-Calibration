@@ -308,6 +308,10 @@ header {
 .active-tab {
   background-color: #CCCCCC;
 }
+.border {
+  width: 50%;
+  float: left;
+}
 @media screen and (max-width: 1100px) {
   .grid-container {
     display: grid;
@@ -338,10 +342,6 @@ header {
   .tab{
     padding: 10px 10px;
   }
-  .border {
-    width: 50%;
-    float: left;
-}
 }
 @media screen and (max-width: 400px) {
   .grid-container {
@@ -368,6 +368,9 @@ header {
   .TextArea{
     font-size: 11px;
     width: 100vw;
+  }
+  .border {
+    width: 100%;
   }
   #L90decrement,#L90increment,#L0decrement,#L0increment,#R90decrement,#R90increment,#R0decrement,#R0increment{
     font-size: 12px;
