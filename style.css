@@ -311,6 +311,7 @@ header {
 .border {
   width: 50%;
   float: left;
+  text-align: center;
 }
 @media screen and (max-width: 1100px) {
   .grid-container {
