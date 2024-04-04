@@ -313,13 +313,8 @@ header {
   float: left;
   text-align: center;
 }
-.custom-radio input[type="radio"] {
-  width: 20px; /* Kích thước chiều rộng của hình tròn */
-  height: 20px; /* Kích thước chiều cao của hình tròn */
-}
-
 .custom-radio label {
-  font-size: 20px; /* Kích thước của chữ trong label */
+  font-size: 25px; /* Kích thước của chữ trong label */
 }
 @media screen and (max-width: 1100px) {
   .grid-container {
