@@ -240,7 +240,7 @@ function handleAction(action) {
 var radioInputs = document.querySelectorAll('#led1, #led2');
 
 radioInputs.forEach(function(input) {
-    input.addEventListener('change', handleRadioChange);
+    input.addEventListener('click', handleRadioChange);
 });
 
 function handleRadioChange(event) {
@@ -253,10 +253,10 @@ function handleRadioChange(event) {
     handleAction('RGB '+ ModeLed + ' ' + 'Step ' + StepDir);
 }
 
-var radioInputs2 = document.querySelectorAll('#dir1, #dir2, #stop');
+var radioInputs2 = document.querySelectorAll('#dir1, #dir2');
 
 radioInputs2.forEach(function(input) {
-    input.addEventListener('change', handleRadioChange2);
+    input.addEventListener('click', handleRadioChange2);
 });
 
 function handleRadioChange2(event) {
