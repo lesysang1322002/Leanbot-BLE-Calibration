@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
-  });
+});
 
 function sendLR(){
     send ('LR' + ' ' + Lvalue.value + ' ' + Rvalue.value);
